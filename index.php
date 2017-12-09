@@ -2,6 +2,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <title>MI CASA</title>
 <meta charset="utf-8">
@@ -31,20 +32,21 @@
   <div class="main">
     <!-- header -->
     <header>
-      <h1><a href="index.php" id="logo"></a></h1>
-      <div class="wrapper">
-        <ul id="icons">
-          <li><a href="#" class="normaltip"><img src="images/icon1.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon2.jpg" alt=""></a></li>
-          <li><a href="#" class="normaltip"><img src="images/icon3.jpg" alt=""></a></li>
-        </ul>
-      </div>
+      <h1><a href="index.html" id="logo"></a></h1>
+	  <form align="right" method="post" action="index.php"><br/>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"><br/>
+            <input type="submit" class="button" value="Login">   <a href="register.php" align="right" class="button">Register</a> 
+        </form><br>
+      
       <nav>
         <ul id="menu">
-          <li id="menu_active"><a href="index.html">Home Page</a></li>
-          <li><a href="">Buying </a></li>
-          <li><a href="">Selling </a></li>
-          <li><a href="">Renting </a></li>
+          <li id="menu_active"><a href="index.php">Home Page</a></li>
+          <li><a href="account.php">Edit Account </a></li>
+          <li><a href="register.php">Registration </a></li>
+          <li><a href="database.php">Database </a></li>
           <li><a href="contacts.php">contact us</a></li>
          
         </ul>
@@ -138,7 +140,7 @@
                     <option>Sale</option>
                   </select>
                 </div>
-                <div class="cols pad_left1"> <a href="#" class="button">Proposals</a> </div>
+                <div class="cols pad_left1"> <a href="#" class="button">Find your home</a> </div>
               </div>
               Know exactly what you want? <br>
               Try our <a href="#">Advanced Search</a> </div>
@@ -238,7 +240,8 @@
 <div class="body4">
   <div class="main">
     <!-- footer -->
-    <footer> <span class="call">For your design call: <span>1-876-477-2117</span></span> Copyright &copy; <a href="#">MI CASA 2017</a> All Rights Reserved<br>
+    <footer> 
+      </div><span class="call">For your design call: <span>1-876-477-2117</span></span> Copyright &copy; <a href="#">MI CASA 2017</a> All Rights Reserved<br>
       Design by <a target="_blank" href=""> Mikhail Gooden Helium</a>
       
     </footer>
