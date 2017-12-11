@@ -69,8 +69,8 @@
 	<div class="ws_images"><ul>
 		<li><img src="data0/images/m1.jpg" alt="p-7"  title="Build your Dream" id="wows0_0"/></li>
 		<li><img src="data0/images/m2.jpg" alt="p-8" title="shelter your family from the rain" id="wows0_1"/></li>
-		<li><a href="data0/images/m3.jpg"><img src="data0/images/M1 (3).jpg" alt="full screen slider" title="Dreams become reality" id="wows0_2"/></a></li>
-		<li><img src="data0/images/m4.jpg" alt="slide1" title="In the comfort of your own home" id="wows0_3"/></li>
+		<li><a href="data0/images/m3.jpg"><img src="data0/images/m3.jpg" alt="full screen slider" title="Dreams become reality" id="wows0_2"/></a></li>
+		<li><img src="data0/images/m4.jpg" alt="slide1" title="In the comfort of your own home" id="wows0_3"/></li
 	</ul></div>
 			
 				
