@@ -74,7 +74,7 @@
                 <div  class="textarea_box"> <span>Your Message:</span>
                   <textarea name="textarea" cols="1" rows="1"></textarea>
                 </div>
-                <span>&nbsp;</span> <a href="#" class="button">Clear</a> <a href="#" class="button">Send</a> </div>
+                <span>&nbsp;</span> <button type="reset" class="button">Clear</button> <button class="button">Send</button> </div>
             </form>
           </div>
        
