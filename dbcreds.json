@@ -1,7 +1,0 @@
-{
-    "hostname": "us-cdbr-iron-east-05.cleardb.net",
-    "user": "b8977bf06f6cc8",
-    "pass": "17410464",
-    "DB": "heroku_02f2163267c6ec8",
-    "port": "3306"
-}
