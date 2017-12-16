@@ -63,19 +63,34 @@
             <h2 class="pad_bot1 pad_top1">Create Account</h2>
             <form id="ContactForm" action="#">
               <div>
-                <div  class="wrapper"> <span>User Name:</span>
-                  <input type="text" class="input" >
+                <div  class="wrapper"> <span>First Name<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="text" class="input" name="fname">
                 </div>
-                <div  class="wrapper"> <span>Your E-mail:</span>
-                  <input type="text" class="input" >
+                <div  class="wrapper"> <span>Middle Name:</span>
+                  <input type="text" class="input" name="mname">
                 </div>
-                <div  class="wrapper"> <span>password:</span>
-                  <input type="text" class="input" >
+                <div  class="wrapper"> <span>Last Name<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="text" class="input" name="lname">
                 </div>
-				<div  class="wrapper"> <span>retype password:</span>
-                  <input type="text" class="input" >
+                <div  class="wrapper"> <span>Telephone<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="text" class="input" name="tel1">
                 </div>
-                <span>&nbsp;</span> <a href="#" class="button">Clear</a> <a href="#" class="button">create</a> </div>
+                <div  class="wrapper"> <span>Telephone 2:</span>
+                  <input type="text" class="input" name="tel2">
+                </div>
+                <div  class="wrapper"> <span>Your E-mail<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="email" class="input" name="email">
+                </div>
+                <div  class="wrapper"> <span>TRN<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="text" class="input" name="trn">
+                </div>
+                <div  class="wrapper"> <span>Password<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="password" class="input" name="pword">
+                </div>
+				<div  class="wrapper"> <span>Retype Password<em style="color: red;">*</em>&nbsp;:</span>
+                  <input type="password" class="input" name="rpword">
+                </div>
+                <span>&nbsp;</span> <button type="reset" class="button">Clear</button> <button href="#" class="button">Create</button> </div>
             </form>
           </div>
        
