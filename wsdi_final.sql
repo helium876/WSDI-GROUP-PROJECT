@@ -109,7 +109,7 @@ CREATE TABLE `users` (
 
 
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Mikhail','Rene','Shaw','876-585-1482','876-986-5623','mikshaw01@gmail.com','123-456-789','$2y$10$l7cQNCMhWYY/sZ9Qzw7ufeBvZQr9AtQ5hVQxjsfb.wHgcaaqz9rrG','user'),(2,'John','Jones','Doe','876-999-9999','876-555-5555','doeboy13@gmail.com','321-654-987','$2y$10$uuTIxQP8uZhFbzCs6lpdZezYXxkVVmQ50WDJsmi1YkiOtLlcdQDqm','user');
+INSERT INTO `users` VALUES (1,'Mikhail','Rene','Shaw','876-585-1482','876-986-5623','mikshaw01@gmail.com','123-456-789','$2y$10$l7cQNCMhWYY/sZ9Qzw7ufeBvZQr9AtQ5hVQxjsfb.wHgcaaqz9rrG','user'),(2,'John','Jones','Doe','876-999-9999','876-555-5555','doeboy13@gmail.com','321-654-987','$2y$10$jmOTHgZea7.CY1.IvggUMeUHyudPT8W4H6A42AD5e3dR59tNhiEfC','user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
