@@ -1,9 +1,3 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -51,7 +45,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>	
 						<div class="w3_agileits_section_room">
 							<select onchange="change_country(this.value)" required="">
-								<option value="">Any Location</option>
+								<option value="">Parish</option>
 								<option value="">Australia</option>         
 								<option value="">Sweden</option>
 								<option value="">Netherlands</option>
@@ -72,7 +66,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="wthree_range_slider">
 						<h4>Price range</h4>
 						<div id="slider-range"></div>	
-						<input type="text" id="amount" style="border: 0;" />
+						<select id="amount" name="">
+								<option value="">Less Than $1,000,000</option>
+								<option value="">$1,000,001 - $3,000,000</option>
+								<option value="">$3,000,001 - $5,000,000</option>
+								<option value="">Greater Than $5,000,000</option>
+							</select>
 							
 					</div>
 					<input type="submit" value="Find properties">
