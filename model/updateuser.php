@@ -18,6 +18,7 @@
 				//insert into database
 				$stmt = $db->prepare('UPDATE users  SET fname = :fname, mname = :mname, lname = :lname, tel1 = :tel1, tel2 = :tel2, email = :email, trn = :trn, password = :password, user_type = :user_type WHERE id = :id)') ;
 				$stmt->execute(array(
+					':id' => $user_id,
 					':fname' => $fname,  
 					':mname' => $mname,  
 					':lname' => $lname,  
@@ -29,8 +30,8 @@
 					':user_type' => $user_type
 				));
 
-				//redirect to index page
-				header('Location: index.php?action=added');
+				//redirect to profile page
+				header('Location: profile.php');
 				exit;
 
 			} catch(PDOException $e) {

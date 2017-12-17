@@ -14,8 +14,9 @@
 			try {
 
 				//insert into database
-				$stmt = $db->prepare('INSERT INTO properties (pid, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, preview, rented, street1, street2, city, parish, country, time_stamp) VALUES (:pid, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :preview, :rented, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
+				$stmt = $db->prepare('INSERT INTO properties (pid, user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, preview, rented, street1, street2, city, parish, country, time_stamp) VALUES (:pid, :user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :preview, :rented, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
 				$stmt->execute(array(
+					':user_id' => $user_id,
 					':prop_name' => $prop_name, 
 					':prop_type' => $prop_type, 
 					':size' => $size, 

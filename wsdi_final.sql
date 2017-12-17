@@ -36,10 +36,10 @@ CREATE TABLE `gallery_images` (
 -- Dumping data for table `gallery_images`
 --
 
-LOCK TABLES `gallery_images` WRITE;
+
 /*!40000 ALTER TABLE `gallery_images` DISABLE KEYS */;
 /*!40000 ALTER TABLE `gallery_images` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `properties`
@@ -50,14 +50,15 @@ DROP TABLE IF EXISTS `properties`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `properties` (
   `pid` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
   `prop_name` varchar(80) DEFAULT NULL,
   `prop_type` varchar(45) DEFAULT NULL,
   `size` int(11) DEFAULT NULL,
   `build_type` varchar(45) DEFAULT NULL,
-  `bed_num` int(11) DEFAULT NULL,
-  `bath_num` int(11) DEFAULT NULL,
+  `bed_num` varchar(5) DEFAULT NULL,
+  `bath_num` varchar(5) DEFAULT NULL,
   `list_type` varchar(45) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `price` varchar(45) DEFAULT NULL,
   `preview` varchar(100) DEFAULT NULL,
   `rented` tinyint(4) DEFAULT NULL,
   `street1` varchar(45) DEFAULT NULL,
@@ -65,18 +66,20 @@ CREATE TABLE `properties` (
   `city` varchar(45) DEFAULT NULL,
   `parish` varchar(45) DEFAULT NULL,
   `country` varchar(45) DEFAULT NULL,
+  `time_stamp` datetime DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `properties`
 --
 
-LOCK TABLES `properties` WRITE;
+
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
+INSERT INTO `properties` VALUES (3,2,'2 Bedroom house','Residential',2500,'Housing','2','1','Rent','32,000','preview_1.jpg',0,'Lot 1575 Jamaica CR','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(2,2,'High Rise House','Residential',3600,'Housing','3','2','Rent','48,000','preview_2.jpg',0,'Lot 1286 Trnidad CL','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(3,2,'Luxury House','Residential',10000,'Housing','5','3+','Rent','126,000','preview_3.jpg',0,'_','Boaden hill','Stony Hill','St. Andrew','Jamaica','2017-12-17 00:00:00');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
-UNLOCK TABLES;
+
 
 --
 -- Table structure for table `users`
@@ -94,20 +97,21 @@ CREATE TABLE `users` (
   `tel2` varchar(12) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `trn` varchar(13) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
+  `password` varchar(512) DEFAULT NULL,
   `user_type` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
+
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Mikhail','Rene','Shaw','876-585-1482','876-986-5623','mikshaw01@gmail.com','123-456-789','$2y$10$l7cQNCMhWYY/sZ9Qzw7ufeBvZQr9AtQ5hVQxjsfb.wHgcaaqz9rrG','user'),(2,'John','Jones','Doe','876-999-9999','876-555-5555','doeboy13@gmail.com','321-654-987','$2y$10$uuTIxQP8uZhFbzCs6lpdZezYXxkVVmQ50WDJsmi1YkiOtLlcdQDqm','user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -118,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-13 22:45:24
+-- Dump completed on 2017-12-17  9:14:26

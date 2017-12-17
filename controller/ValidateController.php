@@ -167,40 +167,36 @@
             echo json_encode($errs);
         }else if(isset($_REQUEST["pval"])){
             include "../model/PValErrors.php";
-            $err = new PValErrors();
-            // $err->setValErrors("fname error","lname error","telephone error","email error","trn error","password error", "password2 error");
-            $err->setPropTypeErr(valdrop($_POST["proptype"]));
-            $err->setLandErr(valdigit($_POST["land"]));
-            $err->setBuildTypeErr(valdrop($_POST["buildtype"]));
-            $err->setBedRmErr(valdrop($_POST["bedrm"]));
-            $err->setBathRmErr(valdrop($_POST["bathrm"]));
-            $err->setListTypeErr(valdrop($_POST["listtype"]));
-            $err->setPriceErr(valdigit($_POST["price"]));
-            $errs = array(
-                $err->getPropTypeErr(),
-                $err->getLandErr(),
-                $err->getBuildTypeErr(),
-                $err->getBedRmErr(),
-                $err->getBathRmErr(),
-                $err->getListTypeErr(),
-                $err->getPriceErr()
-            );
-            echo json_encode($errs);
-        }else if(isset($_REQUEST["lval"])){
             include "../model/LValErrors.php";
-            $err = new LValErrors();
+            $perr = new PValErrors();
+            $lerr = new LValErrors();
             // $err->setValErrors("fname error","lname error","telephone error","email error","trn error","password error", "password2 error");
-            $err->setAddr1Err(valaddr($_POST["addr1"]));
-            $err->setAddr2Err(valaddr($_POST["addr2"]));
-            $err->setCityErr(valaddr($_POST["city"]));
-            $err->setParishErr(valaddr($_POST["parish"]));
-            $err->setCountryErr(valaddr($_POST["country"]));
+            $perr->setPropTypeErr(valdrop($_POST["prop_type"]));
+            $perr->setLandErr(valdigit($_POST["size"]));
+            $perr->setBuildTypeErr(valdrop($_POST["build_type"]));
+            $perr->setBedRmErr(valdrop($_POST["bed_num"]));
+            $perr->setBathRmErr(valdrop($_POST["bath_num"]));
+            $perr->setListTypeErr(valdrop($_POST["list_type"]));
+            $perr->setPriceErr(valdigit($_POST["price"]));
+            // $err->setValErrors("fname error","lname error","telephone error","email error","trn error","password error", "password2 error");
+            $lerr->setAddr1Err(valaddr($_POST["street1"]));
+            $lerr->setAddr2Err(valaddr($_POST["street2"]));
+            $lerr->setCityErr(valaddr($_POST["city"]));
+            $lerr->setParishErr(valaddr($_POST["parish"]));
+            $lerr->setCountryErr(valaddr($_POST["country"]));
             $errs = array(
-                $err->getAddr1Err(),
-                $err->getAddr2Err(),
-                $err->getCityErr(),
-                $err->getParishErr(),
-                $err->getCountryErr(),
+                $perr->getPropTypeErr(),
+                $perr->getLandErr(),
+                $perr->getBuildTypeErr(),
+                $perr->getBedRmErr(),
+                $perr->getBathRmErr(),
+                $perr->getListTypeErr(),
+                $perr->getPriceErr(),
+                $lerr->getAddr1Err(),
+                $lerr->getAddr2Err(),
+                $lerr->getCityErr(),
+                $lerr->getParishErr(),
+                $lerr->getCountryErr(),
             );
             echo json_encode($errs);
         }

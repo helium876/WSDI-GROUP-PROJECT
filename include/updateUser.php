@@ -8,6 +8,7 @@
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
                 <form action="model/addproperty.php" method="post" id="propForm">
+                    <input type="text" name="user_id" value="<?php echo $USER["id"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
                      <div>
