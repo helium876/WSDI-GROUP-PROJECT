@@ -55,10 +55,12 @@
         
         <hr style="margin-top: -70px !important; width: 70%; border-color: black; z-index: -10 !important;"/>
         <div class="w3layouts_header" style="margin-top: 100px !important;">
-            <h5 style="margin-left: -12mm !important; cursor: pointer;" id="userName">
+            <h5 style="margin-left: -12mm !important;" id="userName">
+				<span style="cursor: pointer; color: rgb(93, 204, 216);">
                 <?php 
                     echo $USER["fname"]." ".$USER["mname"]." ".$USER["lname"];
                 ?>
+				</span>
             </h5>
         </div>
 
@@ -128,7 +130,8 @@
 
 		<div class="container" id="userPropertiesContainer">
 			<div class="w3layouts_header" style="margin-top: 15px !important;">
-				<h5 style="margin-left: -12mm !important; cursor: pointer;" id="userName">
+				<h5 style="margin-left: -12mm !important; color: rgb(93, 204, 216)" id="userName">
+
 					Your Properties
 					<button style="
 									width: 20px; 
@@ -151,32 +154,48 @@
 						$user->set_properties($USER["email"]);
 
 						function displayProperties($index, $user){
-							echo '<div class="row">';
+							echo '<div class="w3_services_grids">';
 							for($x = $index; $x < $index + 3; $x++){
 								$thisprop = $user->get_property($x);
 								if(true){
 									echo '
-										<div class="col-sm-4" data-id="'.$thisprop["pid"].'">
-											<img src="images/previews/'.$thisprop["preview"].'" 
-														class="centered and cropped"
-														style="
-															width: 80% !important;
-															height: 200px !important;
-														"/>
-											<h5>'.$thisprop["prop_name"].'
-												<button style="
+										
+										<div class="col-md-4 w3l_services_grid" 
+												data-id="'.$thisprop["pid"].'"
+													>
+											<div class="w3ls_services_grid agileits_services_grid" id="proppic'.$thisprop["pid"].'">
+												<style>
+													#proppic'.$thisprop["pid"].' {
+														background: url("images/previews/'.$thisprop["preview"].'") no-repeat 0px 0px !important;
+														background-size: 100% !important;
+														-webkit-background-size: 100% !important;
+														-moz-background-size: 100% !important;
+														-o-background-size: 100% !important;
+														-ms-background-size: 100% !important;
+														border-bottom: 3px solid #10b5fb;
+													}
+												</style>
+												<div class="agile_services_grid1_sub">
+													<label style="padding: 1mm !important; background-color: #10b5fb; color: white;">$'.$thisprop["price"].'</label>
+												</div>
+												<div class="agileinfo_services_grid_pos">
+													<i class="fa fa-home" aria-hidden="true"></i>
+												</div>
+											</div>
+											<div class="wthree_service_text">
+												<h3><a style="color: rgb(93, 204, 216)" href="property.com?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
+													<button style="
 															width: 20px; 
 															height: 20px; 
 															border-radius: 100%; 
 															border: none; 
-															background: transparent;"
-															data-toggle="modal" data-target="#updatePropertyModal">
-													<span>
-														<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-													</span>
-												</button>
-											</h5>
-											
+															background: transparent;" class="upPropBtn" data-id="'.$thisprop["pid"].'">
+														<span>
+															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+														</span>
+													</button>
+												</h3>
+											</div>
 										</div>
 									';
 								}
@@ -196,7 +215,7 @@
 
 		</div>
 		<br><br><br><br>
-
+		<button hidden id="upProp" data-toggle="modal" data-target="#updatePropModal"></button>
 		<div class="modal fade" id="addPropModal" tabindex="-1" role="dialog" aria-labelledby="addPropModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -220,7 +239,7 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="addPropModal" tabindex="-1" role="dialog" aria-labelledby="addPropModal" aria-hidden="true">
+		<div class="modal fade" id="updatePropModal" tabindex="-1" role="dialog" aria-labelledby="updatePropModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 				<div class="modal-header">
@@ -229,10 +248,10 @@
 					<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					<?php
-						include("include/addproperty.php");
-					?>
+				<div class="modal-body" id="upPropModBody">
+						<?php
+						include("include/updateproperty.php");
+						?>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -308,7 +327,45 @@
 		$('#userName').click(() => {
 			$("#userInfo").animate({height: 'toggle'});
 		});
+
+		$('.upPropBtn').click(function(e) {
+			var here = $(this);
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					//console.log(this.responseText);
+						var response = JSON.parse(this.responseText);
+						alert(JSON.stringify(response));
+						$('#updatePropModal .propForm input[name=pid]').val(response[0]);
+						$('#updatePropModal .propForm input[name=user_id]').val(response[1]);	
+						$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
+						$('#updatePropModal .propForm input[name=prop_name]').trigger('focus');
+						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).text(response[3]);
+						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).val(response[3]);
+						$('#updatePropModal .propForm input[name=size]').val(response[4]);	
+						$('#updatePropModal .propForm select[name=build_type] option').eq(0).text(response[5]);
+						$('#updatePropModal .propForm select[name=build_type] option').eq(0).val(response[5]);
+						$('#updatePropModal .propForm select[name=bed_num] option').eq(0).text(response[6]);
+						$('#updatePropModal .propForm select[name=bed_num] option').eq(0).val(response[6]);
+						$('#updatePropModal .propForm select[name=bath_num] option').eq(0).text(response[7]);
+						$('#updatePropModal .propForm select[name=bath_num] option').eq(0).val(response[7]);
+						$('#updatePropModal .propForm select[name=list_type] option').eq(0).text(response[8]);
+						$('#updatePropModal .propForm select[name=list_type] option').eq(0).val(response[8]);
+						$('#updatePropModal .propForm input[name=price]').val(response[9]);
+						$('#updatePropModal .propForm input[name=street1]').val(response[12]);
+						$('#updatePropModal .propForm input[name=street2]').val(response[13]);
+						$('#updatePropModal .propForm input[name=city]').val(response[14]);
+						$('#updatePropModal .propForm input[name=parish]').val(response[15]);
+						$('#updatePropModal .propForm input[name=country]').val(response[16]);				
+						$('#upProp').click();
+				}
+			};
+			xmlhttp.open("POST", "model/getproperties.php?pid="+here.attr("data-id"));
+			xmlhttp.send();			
+		});
 	});
+
+	
 </script>
 
     <?php include("include/footer.php"); ?>

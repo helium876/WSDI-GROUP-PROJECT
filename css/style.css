@@ -643,7 +643,7 @@ input#amount {
 }
 
 .agileits_services_grid {
-    background: url(../images/1.jpg) no-repeat 0px 0px;
+    /*background: url(../images/1.jpg) no-repeat 0px 0px;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -713,7 +713,7 @@ input#amount {
 }
 
 .agileits_services_grid7 {
-    background: url(../images/11.jpg) no-repeat 0px 0px;
+    /*background: url(../images/11.jpg) no-repeat 0px 0px;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;

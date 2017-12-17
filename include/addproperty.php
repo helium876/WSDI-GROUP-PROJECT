@@ -1,10 +1,9 @@
-
             <div class="w3layouts_header">
 				<p><span><i class="fa fa-home" aria-hidden="true"></i></span></p>
 				<h5>Add Property</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
-                <form action="model/addproperty.php" method="post" id="propForm">
+                <form action="model/addproperty.php" method="post" class="propForm">
                     <input type="text" name="user_id" value="<?php echo $USER["id"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
@@ -16,7 +15,7 @@
                             </label>
                     </span>
                     <span class="input input--chisato" style="margin-left: 23mm !important;">
-                            <select class="input__field input__field--chisato" name="prop_name">
+                            <select class="input__field input__field--chisato" name="prop_type">
                                 <option value="title">**Property Type**</option>
                                 <option value="Vacant Lot">Vacant Lot</option>
                                 <option value="Residential">Residential</option>

@@ -101,11 +101,3 @@
 			});
 	</script>
 <!-- //here ends scrolling icon -->
-<script>
-	$(document).ready(function(){
-		var path = window.location.pathname.split("/");
-		alert($('nav .nav li a[href=login.php]').text());
-		$('nav .nav li a[href='+path+']').addClass("active");
-		//alert(path[1]);
-	});
-</script>

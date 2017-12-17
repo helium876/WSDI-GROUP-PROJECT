@@ -45,4 +45,11 @@
 		</div>
 	</div>
 <!-- //banner -->
+<script>
+	$(document).ready(function(){
+		var path = window.location.pathname.split("/");
+		$('.nav li a[href="'+path[1]+'"]').parent().addClass("active");
+		//alert(path[1]);
+	});
+</script>
 

@@ -21,7 +21,7 @@
 				<h5>Register</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
-                <form action="model/adduser.php" method="POST" id="regForm">
+                <form action="model/adduser.php" method="POST"class="regForm">
                     <div>
                         <span class="input input--chisato">
                             <input class="input__field input__field--chisato" name="fname" type="text" placeholder="" required="true" />
@@ -48,13 +48,13 @@
                         <span class="input input--chisato">
                             <input class="input__field input__field--chisato" name="tel1" type="text" placeholder="" required="true" />
                             <label class="input__label input__label--chisato" for="tel1">
-                                <span class="input__label-content input__label-content--chisato" data-content="x-xxx-xxx-xxxx">Telephone 1 <em style="color: red">*</em></span>
+                                <span class="input__label-content input__label-content--chisato" data-content="xxx-xxx-xxxx">Telephone 1 <em style="color: red">*</em></span>
                             </label>
                         </span>
                         <span class="input input--chisato">
                             <input class="input__field input__field--chisato" name="tel2" type="text" placeholder="" />
                             <label class="input__label input__label--chisato" for="tel2">
-                                <span class="input__label-content input__label-content--chisato" data-content="x-xxx-xxx-xxxx">Telephone 2</span>
+                                <span class="input__label-content input__label-content--chisato" data-content="xxx-xxx-xxxx">Telephone 2</span>
                             </label>
                         </span>
                         <span class="input input--chisato">
@@ -85,7 +85,7 @@
                         </span>
                     </div>
                     <span class="input input--chisato">
-                        <input type="submit" value="Register" name="submit"> <a href="login.php" style="margin-left: 2mm !important;">Have Account?</a>
+                        <input type="submit" value="Register" name="regSub"><input type="submit" id="regSub" name="submit" hidden/> <a href="login.php" style="margin-left: 2mm !important;">Have Account?</a>
                     </span>
                 </form>
             </div>

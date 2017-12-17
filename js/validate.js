@@ -7,7 +7,7 @@ $(document).ready(function() {
     }
 
     /////////////////////////////////// Register Ajax Calls ///////////////////////////////Start
-    $('#regForm input[name=fname]').blur(function(e) {
+    $('.regForm input[name=fname]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -35,7 +35,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=lname]').blur(function(e) {
+    $('.regForm input[name=lname]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -63,7 +63,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=tel1]').blur(function(e) {
+    $('.regForm input[name=tel1]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -91,7 +91,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=email]').blur(function(e) {
+    $('.regForm input[name=email]').blur(function(e) {
 
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -120,7 +120,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=trn]').blur(function(e) {
+    $('.regForm input[name=trn]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -148,7 +148,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=password]').blur(function(e) {
+    $('.regForm input[name=password]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -176,7 +176,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[name=rpassword]').blur(function(e) {
+    $('.regForm input[name=rpassword]').blur(function(e) {
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -197,30 +197,30 @@ $(document).ready(function() {
             }
         };
         formData.append('rpword', $(this).val());
-        formData.append('pword', $('#regForm input[name=password]').val());
+        formData.append('pword', $('.regForm input[name=password]').val());
         xmlhttp.open("POST", "controller/ValidateController.php?valtype=rpword");
         xmlhttp.send(formData);
     });
 
-    $('#regForm input[type="submit"]').click(function(e) {
+    $('.regForm input[name="regSub"]').click(function(e) {
         e.preventDefault();
-        var form = $('#regForm');
+        var form = $('.regForm');
         var pass = true;
         var here = $(this);
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
-        var fname = $('#regForm input[name=fname]');
-        var lname = $('#regForm input[name=lname]');
-        var tel1 = $('#regForm input[name=tel1]');
-        var email = $('#regForm input[name=email]');
-        var trn = $('#regForm input[name=trn]');
-        var pword = $('#regForm input[name=password]');
-        var rpword = $('#regForm input[name=rpassword]');
+        var fname = $('.regForm input[name=fname]');
+        var lname = $('.regForm input[name=lname]');
+        var tel1 = $('.regForm input[name=tel1]');
+        var email = $('.regForm input[name=email]');
+        var trn = $('.regForm input[name=trn]');
+        var pword = $('.regForm input[name=password]');
+        var rpword = $('.regForm input[name=rpassword]');
         var inputs = [fname, lname, tel1, email, trn, pword, rpword];
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //console.log(this.responseText);
-                alert(this.responseText);
+                //alert(this.responseText);
                 var err = JSON.parse(this.responseText);
 
                 // console.log(err[0]);
@@ -233,8 +233,7 @@ $(document).ready(function() {
                     }
                 }
                 if (pass) {
-                    alert("passed");
-                    form.submit();
+                    $('#regSub').click();
                 }
 
             }
@@ -256,7 +255,7 @@ $(document).ready(function() {
 
     /////////////////////////////////// Property Ajax Calls /////////////////////////////////Top
 
-    $('#propForm select[name=prop_type]').change(function(e) {
+    $('.propForm select[name=prop_type]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -286,7 +285,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm select[name=buile_type]').change(function(e) {
+    $('.propForm select[name=build_type]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -316,7 +315,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm select[name=bed_num]').change(function(e) {
+    $('.propForm select[name=bed_num]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -346,7 +345,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm select[name=bath_num]').change(function(e) {
+    $('.propForm select[name=bath_num]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -376,7 +375,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm select[name=list_type]').change(function(e) {
+    $('.propForm select[name=list_type]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -406,7 +405,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm input[name=size]').change(function(e) {
+    $('.propForm input[name=size]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -436,7 +435,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm input[name=price]').change(function(e) {
+    $('.propForm input[name=price]').change(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -466,7 +465,7 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm input[data-type=loc]').blur(function(e) {
+    $('.propForm input[data-type=loc]').blur(function(e) {
         console.log($(this).val());
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
@@ -496,24 +495,24 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('#propForm input[type=submit]').click(function(e) {
+    $('.propForm input[type=submit]').click(function(e) {
         e.preventDefault();
         var pass = true;
         var here = $(this);
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
-        var proptype = $('#propForm select[name=prop_type]');
-        var land = $('#propForm input[name=size]');
-        var buildtype = $('#propForm select[name=build_type]');
-        var bedrm = $('#propForm select[name=bed_num]');
-        var bathrm = $('#propForm select[name=bath_num]');
-        var listtype = $('#propForm select[name=list_type]');
-        var price = $('#propForm input[name=price]');
-        var street1 = $('#propForm input[name=street1]');
-        var street2 = $('#propForm input[name=street2]');
-        var city = $('#propForm input[name=city]');
-        var parish = $('#propForm input[name=parish]');
-        var country = $('#propForm input[name=country]');
+        var proptype = $('.propForm select[name=prop_type]');
+        var land = $('.propForm input[name=size]');
+        var buildtype = $('.propForm select[name=build_type]');
+        var bedrm = $('.propForm select[name=bed_num]');
+        var bathrm = $('.propForm select[name=bath_num]');
+        var listtype = $('.propForm select[name=list_type]');
+        var price = $('.propForm input[name=price]');
+        var street1 = $('.propForm input[name=street1]');
+        var street2 = $('.propForm input[name=street2]');
+        var city = $('.propForm input[name=city]');
+        var parish = $('.propForm input[name=parish]');
+        var country = $('.propForm input[name=country]');
         var inputs = [proptype, land, buildtype, bedrm, bathrm, listtype, price, street1, street2, city, parish, country];
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {

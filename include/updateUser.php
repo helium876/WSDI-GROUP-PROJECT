@@ -7,13 +7,13 @@
 				<h5>Update User</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
-                <form action="model/addproperty.php" method="post" id="propForm">
+                <form action="model/updateuser.php" method="post" class="regForm">
                     <input type="text" name="user_id" value="<?php echo $USER["id"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
                      <div>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="fname" type="text" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="fname" type="text" placeholder="" required="true" value="<?php echo $USER["fname"];?>"/>
                             <label class="input__label input__label--chisato" for="fname">
                                 <span class="input__label-content input__label-content--chisato" data-content="John">First Name <em style="color: red">*</em></span>
                             </label>
@@ -21,13 +21,13 @@
                         
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
                             
-                            <input class="input__field input__field--chisato" name="mname" type="text" placeholder="" />
+                            <input class="input__field input__field--chisato" name="mname" type="text" placeholder="" value="<?php echo $USER["mname"];?>"/>
                             <label class="input__label input__label--chisato" for="mname">
                                 <span class="input__label-content input__label-content--chisato" data-content="Jones">Middle Name</span>
                             </label>
                         </span>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="lname" type="text" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="lname" type="text" placeholder="" required="true" value="<?php echo $USER["lname"];?>"/>
                             <label class="input__label input__label--chisato" for="lname">
                                 <span class="input__label-content input__label-content--chisato" data-content="Doe">Last Name <em style="color: red">*</em></span>
                             </label>
@@ -35,19 +35,19 @@
                     </div>
                     <div>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="tel1" type="text" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="tel1" type="text" placeholder="" required="true" value="<?php echo $USER["tel1"];?>"/>
                             <label class="input__label input__label--chisato" for="tel1">
-                                <span class="input__label-content input__label-content--chisato" data-content="x-xxx-xxx-xxxx">Telephone 1 <em style="color: red">*</em></span>
+                                <span class="input__label-content input__label-content--chisato" data-content="xxx-xxx-xxxx">Telephone 1 <em style="color: red">*</em></span>
                             </label>
                         </span>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="tel2" type="text" placeholder="" />
+                            <input class="input__field input__field--chisato" name="tel2" type="text" placeholder="" value="<?php echo $USER["tel2"];?>"/>
                             <label class="input__label input__label--chisato" for="tel2">
-                                <span class="input__label-content input__label-content--chisato" data-content="x-xxx-xxx-xxxx">Telephone 2</span>
+                                <span class="input__label-content input__label-content--chisato" data-content="xxx-xxx-xxxx">Telephone 2</span>
                             </label>
                         </span>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="trn" type="text" placeholder="" />
+                            <input class="input__field input__field--chisato" name="trn" type="text" placeholder="" value="<?php echo $USER["trn"];?>"/>
                             <label class="input__label input__label--chisato" for="trn">
                                 <span class="input__label-content input__label-content--chisato" data-content="xxx-xxx-xxx">Tax Registration Number</span>
                             </label>
@@ -55,13 +55,13 @@
                     </div>
                     <div>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="email" type="email" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="email" type="email" placeholder="" required="true" value="<?php echo $USER["email"];?>"/>
                             <label class="input__label input__label--chisato" for="email">
                                 <span class="input__label-content input__label-content--chisato" data-content="exam@ple.com">Email Address <em style="color: red">*</em></span>
                             </label>
                         </span>
                         <span class="input input--chisato" style="margin-left: 25mm !important;">
-                            <input class="input__field input__field--chisato" name="password" type="password" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="password" type="password" placeholder="" required="true"/>
                             <label class="input__label input__label--chisato" for="password">
                                 <span class="input__label-content input__label-content--chisato" data-content="********">Password <em style="color: red">*</em></span>
                             </label>
@@ -76,7 +76,7 @@
                     </div>
                     </div>
                     <div class="container">
-                    <input type="submit" value="Update" name="submit" style="margin-left: 26mm !important;">
+                    <input type="submit" value="Update" name="regSub" style="margin-left: 26mm !important;"><input type="submit" name="submit" id="regSub" hidden/>
                     </div>
                 </form>
             </div>
