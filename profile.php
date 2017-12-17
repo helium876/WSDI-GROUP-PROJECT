@@ -8,7 +8,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include("include/head.php"); ?>
+<?php 
+	include("include/head.php"); 
+	$USER;
+	if(!$user->is_logged_in()){
+		header("location: login.php");
+	}else{
+		$USER = $user->get_user($_SESSION["email"]);
+	}
+?>
 
 <style>
 	.centered-and-cropped { object-fit: cover }
@@ -49,12 +57,7 @@
         <div class="w3layouts_header" style="margin-top: 100px !important;">
             <h5 style="margin-left: -12mm !important; cursor: pointer;" id="userName">
                 <?php 
-                    /*echo $_SESSION["fname"];
-                    if(isset($_SESSION["mname"])){
-                        echo " ".$_SESSION["mname"];
-                    }
-                    echo " ".$_SESSION["lname"];*/
-                    echo "John Doe";
+                    echo $USER["fname"]." ".$USER["mname"]." ".$USER["lname"];
                 ?>
             </h5>
         </div>
@@ -84,15 +87,15 @@
 
 				$tel2 = "";
 				
-				/*echo '
-					<div style=\"width: 300px !important; margin: 5mm auto !important; \">
-					<ul class=\"list-group\" style=\"margin-left: -18mm !important;\">
-					<li class=\"list-group-item\">$_SESSION["fname"] $mname $_SESSION["Lname"]</li>
-					<li class=\"list-group-item\">$_SESSION["email"]</li>
-					<li class=\"list-group-item\">$_SESSION["tel1"]</li>';
-					if(isset($_SESSION["tel2"])){
+				echo '
+					<div style="width: 300px !important; margin: 5mm auto !important; ">
+					<ul class="list-group" style="margin-left: -18mm !important;">
+					<li class="list-group-item">'.$USER["fname"].' '. $mname.' '. $USER["lname"].'</li>
+					<li class="list-group-item">'.$USER["email"].'</li>
+					<li class="list-group-item">'.$USER["tel1"].'</li>';
+					if(!empty($USER["tel2"])){
 						echo '
-							<li class=\"list-group-item\">$_SESSION["tel2"]</li>
+							<li class="list-group-item">'.$USER["tel2"].'</li>
 							</ul>
 							</div>		
 						';
@@ -101,8 +104,8 @@
 							</ul>
 							</div>		
 						";
-					}*/
-				echo "
+					}
+				/*echo "
 					<div style=\"width: 300px !important; margin: 5mm auto !important; \">
 					<ul class=\"list-group\" style=\"margin-left: -18mm !important;\">
 					<li class=\"list-group-item\">John $mname Doe</li>
@@ -119,9 +122,8 @@
 							</ul>
 							</div>		
 						";
-					}
+					}*/
 			?>
-			<button type="button" id="infoClose"></button>
 		</div>
 
 		<div class="container" id="userPropertiesContainer">
@@ -146,17 +148,46 @@
 
 				<div class="container">
 					<?php
-						function displayProperties($index){
+						$user->set_properties($USER["email"]);
+
+						function displayProperties($index, $user){
 							echo '<div class="row">';
-							for($x = $index; $x < $index + 1; $x++){
+							for($x = $index; $x < $index + 3; $x++){
+								$thisprop = $user->get_property($x);
 								if(true){
 									echo '
-										<div class="col-m4">
+										<div class="col-sm-4" data-id="'.$thisprop["pid"].'">
+											<img src="images/previews/'.$thisprop["preview"].'" 
+														class="centered and cropped"
+														style="
+															width: 80% !important;
+															height: 200px !important;
+														"/>
+											<h5>'.$thisprop["prop_name"].'
+												<button style="
+															width: 20px; 
+															height: 20px; 
+															border-radius: 100%; 
+															border: none; 
+															background: transparent;"
+															data-toggle="modal" data-target="#updatePropertyModal">
+													<span>
+														<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+													</span>
+												</button>
+											</h5>
+											
 										</div>
 									';
 								}
 							}
-							echo "<div>";
+							echo "</div>";
+						}
+
+						for($x = 0; $x < $user->property_count(); $x++){
+							if($x % 3 == 0){
+								$x = displayProperties($x, $user);
+							}
 						}
 					?>
 				</div>
@@ -164,18 +195,7 @@
         	</div>
 
 		</div>
-
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateUserModal">
-			Update User
-		</button>
-
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addPropModal">
-			Add Property
-		</button>
-
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePropModal">
-			Update Property
-		</button>
+		<br><br><br><br>
 
 		<div class="modal fade" id="addPropModal" tabindex="-1" role="dialog" aria-labelledby="addPropModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
