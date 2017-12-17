@@ -9,54 +9,7 @@
 		//collect form data
 		extract($_POST);
 
-		//very basic validation
-		if($prop_name ==''){
-			$error[] = '';
-		}
-		if($prop_type ==''){
-			$error[] = '';
-		}
-		if($size ==''){
-			$error[] = '';
-		}
-		if($build_type ==''){
-			$error[] = '';
-		}
-		if($bed_num ==''){
-			$error[] = '';
-		}
-		if($bath_num ==''){
-			$error[] = '';
-		}
-		if($list_type ==''){
-			$error[] = '';
-		}
-		if($price ==''){
-			$error[] = '';
-		}
-		if($preview ==''){
-			$error[] = '';
-		}
-		if($rented ==''){
-			$error[] = '';
-		}
-		if($street1 ==''){
-			$error[] = '';
-		}
-		if($street2 ==''){
-			$error[] = '';
-		}
-		if($city ==''){
-			$error[] = '';
-		}
-		if($parish ==''){
-			$error[] = '';
-		}
-		if($country ==''){
-			$error[] = '';
-		}
-
-		if(!isset($error)){
+		
 
 			try {
 
@@ -82,14 +35,14 @@
 				));
 
 				//redirect to index page
-				header('Location: index.php?action=added');
+				header('Location: profile.php?action=added');
 				exit;
 
 			} catch(PDOException $e) {
 			    echo $e->getMessage();
 			}
 
-		}
+	
 
 	}
 

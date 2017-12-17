@@ -9,36 +9,7 @@
 		//collect form data
 		extract($_POST);
 
-		//very basic validation
-		if($fname ==''){
-			$error[] = '';
-		}
-		if($mname ==''){
-			$error[] = '';
-		}
-		if($lname ==''){
-			$error[] = '';
-		}
-		if($tel1 ==''){
-			$error[] = '';
-		}
-		if($tel2 ==''){
-			$error[] = '';
-		}
-		if($email ==''){
-			$error[] = '';
-		}
-		if($trn ==''){
-			$error[] = '';
-		}
-		if($password ==''){
-			$error[] = '';
-		}
-		if($user_type ==''){
-			$error[] = '';
-		}
-
-		if(!isset($error)){
+		
 
 			$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
 
@@ -66,14 +37,7 @@
 			    echo $e->getMessage();
 			}
 
-		}
+		
 
-	}
-
-	//check for any errors
-	if(isset($error)){
-		foreach($error as $error){
-			echo '<p class="error">'.$error.'</p>';
-		}
 	}
 	?>

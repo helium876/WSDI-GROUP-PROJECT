@@ -1311,6 +1311,19 @@ input#amount {
 /*-- mail --*/
 
 
+/*-- validation --*/
+
+.error {
+    position: absolute !important;
+    top: -10px !important;
+    left: 120px !important;
+    color: red;
+}
+
+
+/*-- validation --*/
+
+
 /*-- effect --*/
 
 .input {
