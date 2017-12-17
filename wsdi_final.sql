@@ -77,7 +77,7 @@ CREATE TABLE `properties` (
 
 
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
-INSERT INTO `properties` VALUES (1,1,'2 Bedroom house','Residential',2500,'Housing','2','1','Rent','32,000','preview_1.jpg',0,'Lot 1575 Jamaica CR','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(2,1,'High Rise House','Residential',3600,'Housing','3','2','Rent','48,000','preview_2.jpg',0,'Lot 1286 Trnidad CL','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(3,1,'Luxury House','Residential',10000,'Housing','5','3+','Rent','126,000','preview_3.jpg',0,'_','Boaden hill','Stony Hill','St. Andrew','Jamaica','2017-12-17 00:00:00');
+INSERT INTO `properties` VALUES (3,2,'2 Bedroom house','Residential',2500,'Housing','2','1','Rent','32,000','preview_1.jpg',0,'Lot 1575 Jamaica CR','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(2,2,'High Rise House','Residential',3600,'Housing','3','2','Rent','48,000','preview_2.jpg',0,'Lot 1286 Trnidad CL','Cornwall Courts','Montego Bay','St. James','Jamaica','2017-12-17 00:00:00'),(3,2,'Luxury House','Residential',10000,'Housing','5','3+','Rent','126,000','preview_3.jpg',0,'_','Boaden hill','Stony Hill','St. Andrew','Jamaica','2017-12-17 00:00:00');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
 
 
