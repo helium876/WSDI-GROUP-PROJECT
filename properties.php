@@ -90,50 +90,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 w3l_services_grid">
-					<div class="w3ls_services_grid agileits_services_grid3">
-						<div class="agile_services_grid1_sub agileits_w3layouts_ser_sub2">
-							<p>$ 23,543</p>
-						</div>
-						<div class="agileinfo_services_grid_pos agile_services_grid_pos2">
-							<i class="fa fa-home" aria-hidden="true"></i>
-						</div>
-					</div>
-					<div class="wthree_service_text">
-						<h3>Low rise Buildings for rent</h3>
-						<h4 class="w3_agileits_service3">Reality Agency</h4>
-						<ul>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-							<li>(231)</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-6 w3l_services_grid">
-					<div class="w3ls_services_grid agileits_services_grid4">
-						<div class="agile_services_grid1_sub agileits_w3layouts_ser_sub3">
-							<p>$ 45,426</p>
-						</div>
-						<div class="agileinfo_services_grid_pos agile_services_grid_pos3">
-							<i class="fa fa-home" aria-hidden="true"></i>
-						</div>
-					</div>
-					<div class="wthree_service_text">
-						<h3>Low rise Buildings for rent</h3>
-						<h4 class="w3_agileits_service4">Reality Agency</h4>
-						<ul>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-							<li>(653)</li>
-						</ul>
-					</div>
-				</div>
 				<div class="col-md-4 w3l_services_grid">
 					<div class="w3ls_services_grid agileits_services_grid5">
 						<div class="agile_services_grid1_sub">
