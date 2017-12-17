@@ -73,7 +73,7 @@ $(document).ready(function() {
                 if (!this.responseText) {
                     here.css({ "outline": "rgba(255,0,0,0.8) solid" });
                     if (here.parent().children('.error').length != 1) {
-                        addErr(here.parent(), "Only letters and whitespaces");
+                        addErr(here.parent(), "Invalid Phone Number");
                     }
                 } //else if (this.responseText == null) {
                 //     here.css({ "outline": "rgba(255,0,0,0.8) solid" });
@@ -92,6 +92,7 @@ $(document).ready(function() {
     });
 
     $('#regForm input[name=email]').blur(function(e) {
+
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
         var here = $(this);
@@ -170,7 +171,7 @@ $(document).ready(function() {
                 }
             }
         };
-        formData.append('password', $(this).val());
+        formData.append('pword', $(this).val());
         xmlhttp.open("POST", "controller/ValidateController.php?valtype=pword");
         xmlhttp.send(formData);
     });
@@ -195,14 +196,15 @@ $(document).ready(function() {
                 }
             }
         };
-        formData.append('rpassword', $(this).val());
-        formData.append('password', $('#regForm input[name=password]').val());
+        formData.append('rpword', $(this).val());
+        formData.append('pword', $('#regForm input[name=password]').val());
         xmlhttp.open("POST", "controller/ValidateController.php?valtype=rpword");
         xmlhttp.send(formData);
     });
 
     $('#regForm input[type="submit"]').click(function(e) {
         e.preventDefault();
+        var form = $('#regForm');
         var pass = true;
         var here = $(this);
         var xmlhttp = new XMLHttpRequest();
@@ -218,8 +220,9 @@ $(document).ready(function() {
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 //console.log(this.responseText);
+                alert(this.responseText);
                 var err = JSON.parse(this.responseText);
-                alert(err);
+
                 // console.log(err[0]);
                 for (var x = 0; x < err.length; x++) {
                     if (!err[x]) {
@@ -230,8 +233,10 @@ $(document).ready(function() {
                     }
                 }
                 if (pass) {
-                    here.parent().submit();
+                    alert("passed");
+                    form.submit();
                 }
+
             }
         };
         formData.append('fname', fname.val());
@@ -241,6 +246,7 @@ $(document).ready(function() {
         formData.append('trn', trn.val());
         formData.append('password', pword.val());
         formData.append('rpassword', rpword.val());
+        alert("rpword is: " + rpword.val() + "\n pword is: " + pword.val());
         xmlhttp.open("POST", "controller/ValidateController.php?rval=all");
         xmlhttp.send(formData);
         // console.log('clicked');

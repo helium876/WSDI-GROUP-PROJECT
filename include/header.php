@@ -1,3 +1,6 @@
+<?php
+	
+?>
 <div class="header">
     <div class="container">
         <div class="w3_agile_logo">
@@ -22,11 +25,19 @@
 				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
 					<nav class="link-effect-12">
 						<ul class="nav navbar-nav w3_agile_nav">
-							<li class="active"><a href="index.php"><span>Home</span></a></li>
+							<li><a href="index.php"><span>Home</span></a></li>
 							<li><a href="properties.php"><span>Properties</span></a></li>
 							<li><a href="about.php"><span>About Us</span></a></li>
-							<li><a href="mail.php"><span>Mail Us</span></a></li>
-							<li><a href="login.php"><span>Login</span></a></li>
+							<li><a href="mail.php"><span>Contact Us</span></a></li>
+							<?php
+								if($user->is_logged_in()){
+									echo '<li><a href="Profile.php"><span>Profile</span></a></li>';
+									echo '<li><a href="include/logout.php"><span>Logout</span></a></li>';
+								}else{
+									echo '<li><a href="login.php"><span>Login</span></a></li>';
+								}
+							?>							
+							
 						</ul>
 					</nav>
 				</div>
@@ -34,3 +45,4 @@
 		</div>
 	</div>
 <!-- //banner -->
+

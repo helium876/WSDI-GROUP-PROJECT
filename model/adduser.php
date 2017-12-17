@@ -1,9 +1,8 @@
 <?php
 
 	//if form has been submitted process it
-
+	include("../include/config.php");
 	if(isset($_POST['submit'])){
-
 		$_POST = array_map( 'stripslashes', $_POST );
 
 		//collect form data
@@ -26,11 +25,11 @@
 					':email' => $email,  
 					':trn' => $trn,  
 					':password' => $hashedpassword,  
-					':user_type' => $user_type
+					':user_type' => "user"
 				));
 
 				//redirect to index page
-				header('Location: index.php?action=added');
+				header('Location: ../login.php');
 				exit;
 
 			} catch(PDOException $e) {

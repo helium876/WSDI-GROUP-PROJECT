@@ -1,10 +1,26 @@
 <?php
-
+    $emailVal = $passwordVal = $err = "";
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include("include/head.php")
+    include("include/head.php");
+    if(isset($_POST["submit"])){
+        $_POST = array_map( 'stripslashes', $_POST );
+
+		//collect form data
+		extract($_POST);
+
+        $emailVal = $email;
+        $passwordVal = $password;
+
+        if($user->login($email,$password)){
+            header("location:profile.php");
+        }else{
+            $err = "Email or Password Invalid";
+        }
+    }
 ?>
 <body>
     <header>
@@ -21,16 +37,16 @@
 				<h5>Login</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids center">
-                <form action="" method="post">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div style="display: block !important; margin: 2mm auto !important">
                         <span class="input input--chisato" style="margin-left: 17.5% !important;">
-                            <input class="input__field input__field--chisato" name="email" type="email" placeholder="" required="true" />
+                            <input class="input__field input__field--chisato" name="email" type="email" placeholder="" required="true" value="<?php echo $emailVal;?>"/>
                             <label class="input__label input__label--chisato" for="email">
                                 <span class="input__label-content input__label-content--chisato" data-content="exam@ple.com">Email Address</span>
                             </label>
                         </span>
                         <span class="input input--chisato">
-                            <input class="input__field input__field--chisato" name="password" type="password" placeholder="" />
+                            <input class="input__field input__field--chisato" name="password" type="password" placeholder="" value="<?php echo $passwordVal;?>" />
                             <label class="input__label input__label--chisato" for="password">
                                 <span class="input__label-content input__label-content--chisato" data-content="*******">Password</span>
                             </label>
@@ -38,7 +54,8 @@
                         
                     </div>
                     <span class="input input--chisato" class="input input--chisato" style="margin-left: 17.5% !important;">
-                        <input type="submit" value="Login"><a style="margin-left: 2mm !important;" href="register.php">Don't Have Account?</a>
+                        <span class="error"><?php echo $err;?></span>
+                        <input type="submit" value="Login" name="submit"><a style="margin-left: 2mm !important;" href="register.php">Don't Have Account?</a>
                     </span>
                 </form>
             </div>

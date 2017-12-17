@@ -21,7 +21,7 @@
 				<h5>Register</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
-                <form action="model/adduser.php" method="post" id="regForm">
+                <form action="model/adduser.php" method="POST" id="regForm">
                     <div>
                         <span class="input input--chisato">
                             <input class="input__field input__field--chisato" name="fname" type="text" placeholder="" required="true" />

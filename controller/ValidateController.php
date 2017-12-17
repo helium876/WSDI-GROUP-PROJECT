@@ -24,7 +24,7 @@
     }
 
     function valtrn($trn){
-            if(empty($trn) || !preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{3}*$/", $trn)){
+            if(empty($trn) || !preg_match("/^[0-9]{3}-[0-9]{3}-[0-9]{3}$/",$trn)){
                 return false;
             }else{
                 return true;
@@ -42,7 +42,7 @@
     }
 
     function valrpword($rpword,$pword){
-        if($rpword == $pword){
+        if($rpword === $pword){
             return true;
         }else{
             return false;
@@ -87,7 +87,7 @@
                         echo true;
                 }
             }else if($_REQUEST["valtype"] == "tel"){
-                $tel = $_POST["tel"] * 1;
+                $tel = $_POST["tel"];
                 if(!valtel($tel)){
                     echo false;
                 }else{
@@ -153,8 +153,8 @@
             $err->setTelErr(valtel($_POST["tel1"]));
             $err->setEmailErr(valemail($_POST["email"]));
             $err->setTRNErr(valtrn($_POST["trn"]));
-            $err->setPwordErr(valpword($_POST["pword"]));
-            $err->setRPwordErr(valrpword($_POST["rpword"],$_POST["pword"]));
+            $err->setPwordErr(valpword($_POST["password"]));
+            $err->setRPwordErr(valrpword($_POST["rpassword"],$_POST["password"]));
             $errs = array(
                 $err->getFnameErr(),
                 $err->getLnameErr(),
