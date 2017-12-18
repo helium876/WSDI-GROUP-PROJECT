@@ -155,6 +155,7 @@
 
 						function displayProperties($index, $user){
 							echo '<div class="w3_services_grids">';
+							$x;
 							for($x = $index; $x < $index + 3; $x++){
 								if($x + 1 > $user->property_count()){
 									break;
@@ -204,6 +205,8 @@
 								}
 							}
 							echo "</div>";
+
+							return $x;
 						}
 
 						for($x = 0; $x < $user->property_count(); $x++){
@@ -363,7 +366,7 @@
 						$('#upProp').click();
 				}
 			};
-			xmlhttp.open("POST", "model/getproperties.php?pid="+here.attr("data-id"));
+			xmlhttp.open("POST", "model/ajaxgetproperties.php?pid="+here.attr("data-id"));
 			xmlhttp.send();			
 		});
 	});
