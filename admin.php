@@ -7,8 +7,8 @@
 		header("location: login.php");
 	}else{
 		$USER = $user->get_user($_SESSION["email"]);
-		if($USER["user_type"] == "admin"){
-			header("location: admin.php");
+        if($USER["user_type"] != "admin"){
+			header("location: profile.php");
 		}
 	}
 ?>
@@ -53,7 +53,7 @@
             <h5 style="margin-left: -12mm !important;" id="userName">
 				<span style="cursor: pointer; color: rgb(93, 204, 216);">
                 <?php 
-                    echo $USER["fname"]." ".$USER["mname"]." ".$USER["lname"];
+                    echo "Admin: ".$USER["fname"]." ".$USER["mname"]." ".$USER["lname"];
                 ?>
 				</span>
             </h5>
@@ -123,11 +123,11 @@
 			?>
 		</div>
 
-		<div class="container" id="userPropertiesContainer">
+		<div class="container" id="PropertiesContainer">
 			<div class="w3layouts_header" style="margin-top: 15px !important;">
 				<h5 style="margin-left: -12mm !important; color: rgb(93, 204, 216)" id="userName">
 
-					Your Properties
+					Properties
 					<button style="
 									width: 20px; 
 									height: 20px; 
@@ -145,17 +145,17 @@
 				</div>
 
 				<div class="container">
-					<?php
-						$user->set_properties($USER["email"]);
+                    <?php
+						include("model/getproperties.php");
 
-						function displayProperties($index, $user){
+						function displayProperties($index, $count, $props){
 							echo '<div class="w3_services_grids">';
 							$x;
 							for($x = $index; $x < $index + 3; $x++){
-								if($x + 1 > $user->property_count()){
+								if($x + 1 > $count){
 									break;
 								}
-								$thisprop = $user->get_property($x);								
+								$thisprop = $props[$x];								
 								if(true){
 									echo '
 										
@@ -183,7 +183,7 @@
 											</div>
 											<div class="wthree_service_text">
 												<h3><a style="color: rgb(93, 204, 216)" href="property.php?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
-													<button style="
+                                                    <button style="
 															width: 20px; 
 															height: 20px; 
 															border-radius: 100%; 
@@ -192,7 +192,7 @@
 														<span>
 															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</span>
-													</button>
+                                                    </button>
 												</h3>
 											</div>
 										</div>
@@ -200,13 +200,105 @@
 								}
 							}
 							echo "</div>";
-
 							return $x;
 						}
 
-						for($x = 0; $x < $user->property_count(); $x++){
+						for($x = 0; $x < $count; $x++){
 							if($x % 3 == 0){
-								$x = displayProperties($x, $user);
+								$x = displayProperties($x, $count, $PROPS) - 1;
+							}
+						}
+					?>
+				</div>
+				
+        	</div>
+
+		</div>
+		<br><br><br><br>
+
+        <div class="container" id="UsersContainer">
+			<div class="w3layouts_header" style="margin-top: 15px !important;">
+				<h5 style="margin-left: -12mm !important; color: rgb(93, 204, 216)" id="userName">
+
+					User
+					<button style="
+									width: 20px; 
+									height: 20px; 
+									border-radius: 100%; 
+									border: none; 
+									background: transparent;"
+									data-toggle="modal" data-target="#addPropModal">
+						<span>
+							<i style="color: rgb(93, 204, 216);" class="fa fa-plus-square-o" aria-hidden="true"></i>
+						</span>
+					</button>
+				</h5>
+				<div style="margin-left: -11mm !important; margin-top: -10px !important;">
+					<hr style="width: 300px !important; border-color: darkgrey">
+				</div>
+
+				<div class="container">
+                    <?php
+						include("model/getuser.php");
+
+						function displayUsers($index, $count, $users){
+							echo '<div class="w3_services_grids">';
+							$x;
+							for($x = $index; $x < $index + 3; $x++){
+								if($x + 1 > $count){
+									break;
+								}
+								$thisuser = $users[$x];								
+								if(true){
+									echo '
+										
+										<div class="col-md-4 w3l_services_grid" 
+												data-id="'.$thisuser["id"].'"
+													>
+											<div class="w3ls_services_grid agileits_services_grid" id="propic'.$thisuser["id"].'">
+												<style>
+													#propic'.$thisuser["id"].' {
+														background: url("images/avatars/no_image.png") no-repeat 0px 0px !important;
+														background-size: 100% !important;
+														-webkit-background-size: 100% !important;
+														-moz-background-size: 100% !important;
+														-o-background-size: 100% !important;
+														-ms-background-size: 100% !important;
+														border-bottom: 3px solid #10b5fb;
+													}
+												</style>
+												<div class="agile_services_grid1_sub">
+													<label style="padding: 1mm !important; background-color: #10b5fb; color: white;">'.$thisuser["user_type"].'</label>
+												</div>
+												<div class="agileinfo_services_grid_pos">
+													<i class="fa fa-user-o" aria-hidden="true"></i>
+												</div>
+											</div>
+											<div class="wthree_service_text">
+												<h3>'.$thisuser["fname"].' '.$thisuser["mname"].' '.$thisuser["lname"].'
+                                                    <button style="
+															width: 20px; 
+															height: 20px; 
+															border-radius: 100%; 
+															border: none; 
+															background: transparent;" class="upUserBtn" data-id="'.$thisuser["id"].'">
+														<span>
+															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+														</span>
+                                                    </button>
+												</h3>
+											</div>
+										</div>
+									';
+								}
+							}
+							echo "</div>";
+							return $x;
+						}
+                        $USERS = get_users($db);
+						for($x = 0; $x < count($USERS); $x++){
+							if($x % 3 == 0){
+								$x = displayUsers($x, count($USERS), $USERS) - 1;
 							}
 						}
 					?>
@@ -217,6 +309,7 @@
 		</div>
 		<br><br><br><br>
 		<button hidden id="upProp" data-toggle="modal" data-target="#updatePropModal"></button>
+        <button hidden id="upUser" data-toggle="modal" data-target="#adminUpdateUserModal"></button>
 		<div class="modal fade" id="addPropModal" tabindex="-1" role="dialog" aria-labelledby="addPropModal" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -268,8 +361,47 @@
 					</button>
 				</div>
 				<div class="modal-body">
+                    <?php
+                        include("include/updateUser.php");
+                    ?>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="modal fade" id="adminUpdateUserModal" tabindex="-1" role="dialog" aria-labelledby="updateuserModal" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Your Info</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" id="upUserModBody">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="updateuserModal" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" >Your Info</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
 					<?php
-						include("include/updateUser.php");
+						include("include/addUser.php");
 					?>
 				</div>
 				<div class="modal-footer">
@@ -333,32 +465,28 @@
 				if (this.readyState == 4 && this.status == 200) {
 					//console.log(this.responseText);
 						var response = JSON.parse(this.responseText);
-						/*alert(JSON.stringify(response));
-						$('#updatePropModal .propForm input[name=pid]').val(response[0]);
-						$('#updatePropModal .propForm input[name=user_id]').val(response[1]);	
-						$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
-						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).text(response[3]);
-						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).val(response[3]);
-						$('#updatePropModal .propForm input[name=size]').val(response[4]);	
-						$('#updatePropModal .propForm select[name=build_type] option').eq(0).text(response[5]);
-						$('#updatePropModal .propForm select[name=build_type] option').eq(0).val(response[5]);
-						$('#updatePropModal .propForm select[name=bed_num] option').eq(0).text(response[6]);
-						$('#updatePropModal .propForm select[name=bed_num] option').eq(0).val(response[6]);
-						$('#updatePropModal .propForm select[name=bath_num] option').eq(0).text(response[7]);
-						$('#updatePropModal .propForm select[name=bath_num] option').eq(0).val(response[7]);
-						$('#updatePropModal .propForm select[name=list_type] option').eq(0).text(response[8]);
-						$('#updatePropModal .propForm select[name=list_type] option').eq(0).val(response[8]);
-						$('#updatePropModal .propForm input[name=price]').val(response[9]);
-						$('#updatePropModal .propForm input[name=street1]').val(response[12]);
-						$('#updatePropModal .propForm input[name=street2]').val(response[13]);
-						$('#updatePropModal .propForm input[name=city]').val(response[14]);
-						$('#updatePropModal .propForm input[name=parish]').val(response[15]);
-						$('#updatePropModal .propForm input[name=country]').val(response[16]);*/
+						/*alert(JSON.stringify(response));*/
 						$("#upPropModBody").load("include/updateproperty.php");				
 						$('#upProp').click();
 				}
 			};
 			xmlhttp.open("POST", "model/ajaxgetproperties.php?pid="+here.attr("data-id"));
+			xmlhttp.send();			
+		});
+
+        $('.upUserBtn').click(function(e) {
+			var here = $(this);
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					//console.log(this.responseText);
+                        alert(this.responseText);
+						var response = JSON.parse(this.responseText);
+						$("#upUserModBody").load("include/adminUpdateUser.php");				
+						$('#upUser').click();
+				}
+			};
+			xmlhttp.open("POST", "model/ajaxgetusers.php?id="+here.attr("data-id"));
 			xmlhttp.send();			
 		});
 	});

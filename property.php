@@ -15,6 +15,10 @@
             header("location: properties.php");
         }
 	?>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </head>
     <style>
         .centered-and-cropped { object-fit: cover }
     </style>
@@ -135,10 +139,11 @@
         $('[data-toggle="popover"]').popover({
             container: '.popoverContainer',
             title: 'Post By:',
+            trigger:'hover',
             html: true,
             content: '<?php echo $propUser["fname"]." ".$propUser["mname"]." ".$propUser["lname"]." <br>Contact: <br>Telephone: ".$propUser["tel1"]."<br>Alternative: ".$propUser["tel2"]."<br>Email: ".$propUser["email"]; ?>'
         });
-        $('#popoverImg').click();
+        //$('#popoverImg').click();
     });
 </script>
 <?php

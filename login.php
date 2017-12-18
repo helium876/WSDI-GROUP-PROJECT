@@ -6,6 +6,8 @@
 		header("location: profile.php");
 	}
 
+    $emailVal = $passwordVal = $err = "";
+
     if(isset($_POST["submit"])){
         $_POST = array_map( 'stripslashes', $_POST );
 

@@ -61,16 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											</div>
 											<div class="wthree_service_text">
 												<h3><a style="color: rgb(93, 204, 216)" href="property.php?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
-													<button style="
-															width: 20px; 
-															height: 20px; 
-															border-radius: 100%; 
-															border: none; 
-															background: transparent;" class="upPropBtn" data-id="'.$thisprop["pid"].'">
-														<span>
-															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
-														</span>
-													</button>
+												
 												</h3>
 											</div>
 										</div>

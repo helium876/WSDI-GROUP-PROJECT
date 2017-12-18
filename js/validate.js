@@ -236,7 +236,7 @@ $(document).ready(function() {
                     }
                 }
                 if (pass) {
-                    $('#regSub').click();
+                    here.parent().children('#regSub').click();
                 }
 
             }
@@ -246,8 +246,14 @@ $(document).ready(function() {
         formData.append('tel1', tel1.val());
         formData.append('email', email.val());
         formData.append('trn', trn.val());
-        formData.append('password', pword.val());
-        formData.append('rpassword', rpword.val());
+        if (window.location.pathname != "/register.php") {
+            formData.append('password', "Password@01");
+            formData.append('rpassword', "Password@01");
+        } else {
+            formData.append('password', pword.val());
+            formData.append('rpassword', rpword.val());
+        }
+
         alert("rpword is: " + rpword.val() + "\n pword is: " + pword.val());
         xmlhttp.open("POST", "controller/ValidateController.php?rval=all");
         xmlhttp.send(formData);

@@ -10,8 +10,12 @@
 		extract($_POST);
 
 		
-
-			$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
+			if($password == null || $password == undefined){
+				$hashedpassword = $user->get_user($email)["password"];
+			}else{
+				$hashedpassword = $user->password_hash($password, PASSWORD_BCRYPT);
+			}
+			
 
 			try {
 
@@ -27,7 +31,7 @@
 					':email' => $email,  
 					':trn' => $trn,  
 					':password' => $hashedpassword,  
-					':user_type' => "user"
+					':user_type' => $user_type
 				));
 
 				//redirect to profile page
