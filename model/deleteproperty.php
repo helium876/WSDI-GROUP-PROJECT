@@ -1,13 +1,13 @@
 <?php 
-	if(isset($_GET['deluser'])){ 
+	if(isset($_REQUEST['delprop'])){ 
 
-		//if user id is 1 ignore
-		if($_GET['deluser'] !='1'){
-
+		//if property id is 1 ignore
+		if($_REQUEST['delprop'] !='1'){
+			include("../include/config.php");	
 			$stmt = $db->prepare('DELETE FROM properties WHERE pid = :pid') ;
-			$stmt->execute(array(':id' => $_GET['deluser']));
+			$stmt->execute(array(':pid' => $_REQUEST['delprop']));
 
-			//header('Location: properties.php?action=deleted');
+			header('Location: ../profile.php');
 			exit;
 
 		}

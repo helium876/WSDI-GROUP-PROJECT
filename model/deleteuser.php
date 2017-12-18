@@ -1,13 +1,14 @@
 <?php 
-	if(isset($_GET['deluser'])){ 
+	if(isset($_REQUEST['deluser'])){ 
 
 		//if user id is 1 ignore
-		if($_GET['deluser'] !='1'){
+		if($_REQUEST['deluser'] !='1'){
+			include("../include/config.php");
 
 			$stmt = $db->prepare('DELETE FROM users WHERE id = :id') ;
-			$stmt->execute(array(':id' => $_GET['deluser']));
+			$stmt->execute(array(':id' => $_REQUEST['deluser']));
 
-			header('Location: users.php?action=deleted');
+			header('Location: ../profile.php');
 			exit;
 
 		}

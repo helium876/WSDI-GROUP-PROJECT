@@ -193,6 +193,20 @@
 															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</span>
                                                     </button>
+                                                    <a style="
+															width: 18px; 
+															height: 18px; 
+                                                            margin-top: -1mm !important;
+                                                            margin-left: 1mm !important;
+                                                            line-height: 12px;
+                                                            font-size: 18px;
+															border-radius: 100%; 
+															border: none;"
+                                                            href="model/deleteproperty.php?delprop='.$thisprop["pid"].'">
+														<span>
+															<i style="color: rgb(255,10,10);" class="fa fa-trash-o" aria-hidden="true"></i>
+														</span>
+                                                    </a>
 												</h3>
 											</div>
 										</div>
@@ -286,6 +300,20 @@
 															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</span>
                                                     </button>
+                                                    <a style="
+															width: 18px; 
+															height: 18px; 
+                                                            margin-top: -1mm !important;
+                                                            margin-left: 1mm !important;
+                                                            line-height: 12px;
+                                                            font-size: 18px; 
+															border-radius: 100%; 
+															border: none; "
+                                                            href="model/deleteuser.php?deluser='.$thisuser["id"].'">
+														<span>
+															<i style="color: rgb(255,10,10);" class="fa fa-trash-o" aria-hidden="true"></i>
+														</span>
+                                                    </a>
 												</h3>
 											</div>
 										</div>
