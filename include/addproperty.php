@@ -3,10 +3,16 @@
 				<h5>Add Property</h5>
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
-                <form action="model/addproperty.php" method="post" class="propForm">
+                <form action="model/addproperty.php" method="post" class="propForm" enctype="multipart/form-data">
                     <input type="text" name="user_id" value="<?php echo $USER["id"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
+                    <span class="input input--chisato" style="margin-left: 23mm !important;">
+                            <label class="custom-file">
+                                <input type="file" id="file" class="custom-file-input input__field input__field--chisato" name="preview">
+                                <span class="custom-file-control"></span>
+                            </label>
+                    </span>
                     <span class="input input--chisato" style="margin-left: 23mm !important;">
                         
                             <input class="input__field input__field--chisato" name="prop_name" type="text" placeholder="" />
@@ -15,7 +21,7 @@
                             </label>
                     </span>
                     <span class="input input--chisato" style="margin-left: 23mm !important;">
-                            <select class="input__field input__field--chisato" name="prop_type">
+                            <select class="input__field input__field--chisato custom-select" name="prop_type">
                                 <option value="title">**Property Type**</option>
                                 <option value="Vacant Lot">Vacant Lot</option>
                                 <option value="Residential">Residential</option>
@@ -111,7 +117,8 @@
                     </div>
                     </div>
                     <div class="container">
-                    <input type="submit" value="Add" name="submit" style="margin-left: 24mm !important;">
+                    <input type="submit" value="Add" name="propSub" style="margin-left: 24mm !important;">
+                    <input hidden type="submit" value="Add" name="submit" style="margin-left: 24mm !important;">
                     </div>
                 </form>
             </div>

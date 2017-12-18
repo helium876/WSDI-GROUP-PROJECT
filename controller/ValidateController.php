@@ -77,6 +77,17 @@
         }
     }
 
+    function valimage($img){
+        //$ext = pathinfo($img["name"], PATHINFO_EXTENSION);
+        if($img == null){
+            return false;
+        }elseif($img["type"] === "image/jpeg" || $img["type"] === "image/png"){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(isset($_REQUEST["valtype"])){
             if($_REQUEST["valtype"] == "name"){
@@ -143,6 +154,15 @@
                 }else{
                     echo true;
                 }
+            }else if($_REQUEST["valtype"] == "image"){
+                $img= $_FILES["preview"];
+                if(!valimage($img)){
+                    echo false;
+                }else{
+                    echo true;
+                }
+                //echo $ext = pathinfo($img["name"], PATHINFO_EXTENSION);
+                //print_r($img);
             }
         }else if(isset($_REQUEST["rval"])){
             include "../model/RValErrors.php";
@@ -185,6 +205,7 @@
             $lerr->setParishErr(valaddr($_POST["parish"]));
             $lerr->setCountryErr(valaddr($_POST["country"]));
             $errs = array(
+                valimage($_FILES["preview"]),
                 $perr->getPropTypeErr(),
                 $perr->getLandErr(),
                 $perr->getBuildTypeErr(),

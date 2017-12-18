@@ -181,18 +181,21 @@ $(document).ready(function() {
         var formData = new FormData();
         var here = $(this);
         xmlhttp.onreadystatechange = function() {
-            if (!this.responseText) {
-                here.css({ "outline": "rgba(255,0,0,0.8) solid" });
-                if (here.parent().children('.error').length != 1) {
-                    addErr(here.parent(), "Passwords Must Macth");
-                }
-            } //else if (this.responseText == null) {
-            //     here.css({ "outline": "rgba(255,0,0,0.8) solid" });
-            // } 
-            else {
-                here.css({ "outline": "none" });
-                if (here.parent().children(".error").length > 0) {
-                    here.parent().children('.error').remove();
+            if (this.readyState == 4 && this.status == 200) {
+                // console.log(this.responseText);
+                if (!this.responseText) {
+                    here.css({ "outline": "rgba(255,0,0,0.8) solid" });
+                    if (here.parent().children('.error').length != 1) {
+                        addErr(here.parent(), "Passwords Must Match");
+                    }
+                } //else if (this.responseText == null) {
+                //     here.css({ "outline": "rgba(255,0,0,0.8) solid" });
+                // } 
+                else {
+                    here.css({ "outline": "none" });
+                    if (here.parent().children(".error").length > 0) {
+                        here.parent().children('.error').remove();
+                    }
                 }
             }
         };
@@ -495,12 +498,44 @@ $(document).ready(function() {
         xmlhttp.send(formData);
     });
 
-    $('.propForm input[type=submit]').click(function(e) {
+
+
+    $('.propForm input[name=preview]').change(function(e) {
+        var xmlhttp = new XMLHttpRequest();
+        var formData = new FormData();
+        var here = $(this);
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // console.log(this.responseText);
+                alert(this.responseText);
+                if (!this.responseText) {
+                    here.css({ "outline": "rgba(255,0,0,0.8) solid" });
+                    if (here.parent().children('.error').length != 1) {
+                        addErr(here.parent(), "Should Be Be An Image");
+                    }
+                } //else if (this.responseText == null) {
+                //     here.css({ "outline": "rgba(255,0,0,0.8) solid" });
+                // } 
+                else {
+                    here.css({ "outline": "none" });
+                    if (here.parent().children(".error").length > 0) {
+                        here.parent().children('.error').remove();
+                    }
+                }
+            }
+        };
+        formData.append('preview', $(this)[0].files[0]);
+        xmlhttp.open("POST", "controller/ValidateController.php?valtype=image");
+        xmlhttp.send(formData);
+    });
+
+    $('.propForm input[name="propSub"]').click(function(e) {
         e.preventDefault();
         var pass = true;
         var here = $(this);
         var xmlhttp = new XMLHttpRequest();
         var formData = new FormData();
+        var preview = $('.propForm input[name=preview]');
         var proptype = $('.propForm select[name=prop_type]');
         var land = $('.propForm input[name=size]');
         var buildtype = $('.propForm select[name=build_type]');
@@ -513,7 +548,7 @@ $(document).ready(function() {
         var city = $('.propForm input[name=city]');
         var parish = $('.propForm input[name=parish]');
         var country = $('.propForm input[name=country]');
-        var inputs = [proptype, land, buildtype, bedrm, bathrm, listtype, price, street1, street2, city, parish, country];
+        var inputs = [preview, proptype, land, buildtype, bedrm, bathrm, listtype, price, street1, street2, city, parish, country];
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 console.log(this.responseText);
@@ -528,19 +563,20 @@ $(document).ready(function() {
                     }
                 }
                 if (pass) {
-                    here.parent().submit();
+                    here.parent().children('input[name=submit]').click();
                 }
             }
         };
-        formData.append('proptype', proptype.val());
-        formData.append('land', land.val());
-        formData.append('buildtype', buildtype.val());
-        formData.append('bedrm', bedrm.val());
-        formData.append('bathrm', bathrm.val());
-        formData.append('listtype', listtype.val());
+        formData.append('preview', preview[0].files[0]);
+        formData.append('prop_type', proptype.val());
+        formData.append('size', land.val());
+        formData.append('build_type', buildtype.val());
+        formData.append('bed_num', bedrm.val());
+        formData.append('bath_num', bathrm.val());
+        formData.append('list_type', listtype.val());
         formData.append('price', price.val());
-        formData.append('addr1', addr1.val());
-        formData.append('addr2', addr2.val());
+        formData.append('street1', street1.val());
+        formData.append('street2', street2.val());
         formData.append('city', city.val());
         formData.append('parish', parish.val());
         formData.append('country', country.val());

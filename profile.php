@@ -156,7 +156,10 @@
 						function displayProperties($index, $user){
 							echo '<div class="w3_services_grids">';
 							for($x = $index; $x < $index + 3; $x++){
-								$thisprop = $user->get_property($x);
+								if($x + 1 > $user->property_count()){
+									break;
+								}
+								$thisprop = $user->get_property($x);								
 								if(true){
 									echo '
 										
