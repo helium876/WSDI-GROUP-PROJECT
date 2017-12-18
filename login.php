@@ -1,11 +1,11 @@
-<?php
-    $emailVal = $passwordVal = $err = "";
-    
-?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
     include("include/head.php");
+    if($user->is_logged_in()){
+		header("location: profile.php");
+	}
+
     if(isset($_POST["submit"])){
         $_POST = array_map( 'stripslashes', $_POST );
 

@@ -7,6 +7,10 @@
 
         $prop = new Property($db);
         $thisProp = $prop->get_property($_REQUEST["id"]);
+
+        include("model/getuser.php");
+        $propUser = get_user_by_id($thisProp["user_id"], $db);
+
         }else{
             header("location: properties.php");
         }
@@ -30,10 +34,33 @@
 				<h5><?php echo $thisProp["prop_name"];?></h5>
 			</div>
             <br><br>
-            <div class="container" >
+            <div class="container propContainer" >
+                <!--<div class="popover bs-popover-right bs-popover-right-docs">
+                    <div class="arrow"></div>
+                    <h3 class="popover-header">Popover right</h3>
+                    <div class="popover-body">
+                    <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+                    </div>
+                </div>-->
+                <div class="popoverContainer"
+                            style="
+                                width: 70%;
+                                margin: auto !important;
+                            ">
+                    <label type="button" 
+                        class="btn btn-lg btn-danger" 
+                        style="
+                            float: right;
+                            display: none;
+                        "                         
+                        id="popoverBtn"
+                        hidden>Click to toggle popover</label>
+                </div>
                 <img    src="<?php echo "images/previews/".$thisProp["preview"];?>" 
                         alt="" 
                         class="centered-and-cropped"
+                        data-toggle="popover"
+                        id="popoverImg"
                         style="
                             width: 70% !important;
                             height: 400px !important;
@@ -103,6 +130,17 @@
 		</div>
 	</div>
 <!-- //properties -->
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({
+            container: '.popoverContainer',
+            title: 'Post By:',
+            html: true,
+            content: '<?php echo $propUser["fname"]." ".$propUser["mname"]." ".$propUser["lname"]." <br>Contact: <br>Telephone: ".$propUser["tel1"]."<br>Alternative: ".$propUser["tel2"]."<br>Email: ".$propUser["email"]; ?>'
+        });
+        $('#popoverImg').click();
+    });
+</script>
 <?php
 	include("include/footer.php");
 ?>

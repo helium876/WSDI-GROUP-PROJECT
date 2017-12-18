@@ -1,11 +1,3 @@
-<?php 
-	/*
-		if(!isset($_SESSION["loggedIn"])){
-
-		}
-	*/
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <?php 

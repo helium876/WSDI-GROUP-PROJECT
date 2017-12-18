@@ -1,15 +1,15 @@
-<?php
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include("include/head.php")
+    include("include/head.php");
+    if($user->is_logged_in()){
+		header("location: profile.php");
+	}
 ?>
 <body>
     <header>
         <?php
-            include("include/header.php")
+            include("include/header.php");
         ?>
     </header>
 
