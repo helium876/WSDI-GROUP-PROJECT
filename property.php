@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<?php
+		include("include/head.php");
+
+        if(isset($_REQUEST["id"])){
+        //include("classes/class.property.php");
+
+        $prop = new Property($db);
+        $thisProp = $prop->get_property($_REQUEST["id"]);
+        }else{
+            header("location: properties.php");
+        }
+	?>
+    <style>
+        .centered-and-cropped { object-fit: cover }
+    </style>
+<body>
+<!-- header -->
+	<header>
+		<?php
+			include("include/header.php");
+		?>
+	</header>
+<!-- header -->
+<!-- properties -->
+	<div class="services">
+		<div class="container">
+			<div class="w3layouts_header">
+				<p><span><i class="fa fa-building-o" aria-hidden="true"></i></span></p>
+				<h5><?php echo $thisProp["prop_name"];?></h5>
+			</div>
+            <br><br>
+            <div class="container" >
+                <img    src="<?php echo "images/previews/".$thisProp["preview"];?>" 
+                        alt="" 
+                        class="centered-and-cropped"
+                        style="
+                            width: 70% !important;
+                            height: 400px !important;
+                            display: block !important;
+                            margin: auto !important;
+                        ">
+                <br>
+                <div class="propDataContainer" 
+                    style="
+                        width: 65% !important;
+                        margin: auto !important;
+                    ">
+                    <div class="propInfo"
+                        style="
+                            float: left;
+                        ">
+                      <?php echo "
+                            <label>Property: ".$thisProp["prop_type"]."</label><br>
+                            <label>land Size: ".$thisProp["size"]." km</label><br>
+                            <label>Type: ".$thisProp["build_type"]."</label><br>
+                            <label>Bedrooms: ".$thisProp["bed_num"]."</label><br>
+                            <label>Bathrooms: ".$thisProp["bath_num"]."</label><br>
+                            <label>Listing: ".$thisProp["list_type"]."</label><br>
+                            <label >Price: <span style=\"color: rgb(93, 204, 216)\">$".$thisProp["price"]."<span></label><br>
+                    ";?>  
+                    </div>
+                    <div class="addrCont" 
+                        style="
+                            float: right;
+                        ">
+                    <?php echo "
+                            <label>".$thisProp["street1"]."</label><br>
+                            <label>".$thisProp["street2"]."</label><br>
+                            <label>".$thisProp["city"]."</label><br>
+                            <label>".$thisProp["parish"]."</label><br>
+                            <label>".$thisProp["country"]."</label><br>
+                    ";?>
+                    </div>
+                    <div class="clear-fix"></div>
+                </div>
+            </div>
+			
+				<!--<div class="col-md-4 w3l_services_grid">
+					<div class="w3ls_services_grid agileits_services_grid7">
+						<div class="agile_services_grid1_sub agileits_w3layouts_ser_sub">
+							<p>$ 45,000</p>
+						</div>
+						<div class="agileinfo_services_grid_pos agile_services_grid_pos">
+							<i class="fa fa-home" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="wthree_service_text">
+						<h3>Big luxury house for rent</h3>
+						<h4 class="w3_agileits_service1">Reality Agency</h4>
+						<ul>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+							<li>(854)</li>
+						</ul>
+					</div>
+				</div>-->
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+<!-- //properties -->
+<?php
+	include("include/footer.php");
+?>
+</body>
+</html>

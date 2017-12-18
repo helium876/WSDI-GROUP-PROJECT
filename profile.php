@@ -187,7 +187,7 @@
 												</div>
 											</div>
 											<div class="wthree_service_text">
-												<h3><a style="color: rgb(93, 204, 216)" href="property.com?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
+												<h3><a style="color: rgb(93, 204, 216)" href="property.php?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
 													<button style="
 															width: 20px; 
 															height: 20px; 
@@ -344,8 +344,7 @@
 						alert(JSON.stringify(response));
 						$('#updatePropModal .propForm input[name=pid]').val(response[0]);
 						$('#updatePropModal .propForm input[name=user_id]').val(response[1]);	
-						$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
-						$('#updatePropModal .propForm input[name=prop_name]').trigger('focus');
+						//$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
 						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).text(response[3]);
 						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).val(response[3]);
 						$('#updatePropModal .propForm input[name=size]').val(response[4]);	

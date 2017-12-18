@@ -60,7 +60,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												</div>
 											</div>
 											<div class="wthree_service_text">
-												<h3><a style="color: rgb(93, 204, 216)" href="property.com?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
+												<h3><a style="color: rgb(93, 204, 216)" href="property.php?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
 													<button style="
 															width: 20px; 
 															height: 20px; 

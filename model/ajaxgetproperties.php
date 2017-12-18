@@ -7,7 +7,10 @@
 
             //collect form data
             extract($_REQUEST);
-            echo json_encode($prop->get_property($pid));
+            $_SESSION["prop_to_update"] = null;
+            $_SESSION["prop_to_update"] = $prop->get_property($pid);
+            echo json_encode($_SESSION["prop_to_update"]);
+            
         }
     }
 ?>

@@ -6,62 +6,15 @@
 
 		$_POST = array_map( 'stripslashes', $_POST );
 
-		//collect form data
-		extract($_POST);
+		
 
-		//very basic validation
-		if($prop_name ==''){
-			$error[] = '';
-		}
-		if($prop_type ==''){
-			$error[] = '';
-		}
-		if($size ==''){
-			$error[] = '';
-		}
-		if($build_type ==''){
-			$error[] = '';
-		}
-		if($bed_num ==''){
-			$error[] = '';
-		}
-		if($bath_num ==''){
-			$error[] = '';
-		}
-		if($list_type ==''){
-			$error[] = '';
-		}
-		if($price ==''){
-			$error[] = '';
-		}
-		if($preview ==''){
-			$error[] = '';
-		}
-		if($rented ==''){
-			$error[] = '';
-		}
-		if($street1 ==''){
-			$error[] = '';
-		}
-		if($street2 ==''){
-			$error[] = '';
-		}
-		if($city ==''){
-			$error[] = '';
-		}
-		if($parish ==''){
-			$error[] = '';
-		}
-		if($country ==''){
-			$error[] = '';
-		}
+			include("../include/config.php");
 
 		if(!isset($error)){
 
 			try {
-
 				//insert into database
-				$stmt = $db->prepare('INSERT INTO properties (pid, user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, preview, rented, street1, street2, city, parish, country, time_stamp) VALUES (:pid, :user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :preview, :rented, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
+				$stmt = $db->prepare('INSERT INTO properties (pid, user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, street1, street2, city, parish, country, time_stamp) VALUES (:pid, :user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
 				$stmt->execute(array(
 					':user_id' => $user_id,
 					':prop_name' => $prop_name, 
@@ -72,8 +25,6 @@
 					':bath_num' => $bath_num, 
 					':list_type' => $list_type, 
 					':price' => $price, 
-					':preview' => $preview, 
-					':rented' => $rented, 
 					':street1' => $street1, 
 					':street2' => $street2, 
 					':city' => $city, 
@@ -83,7 +34,7 @@
 				));
 
 				//redirect to profile page
-				header('Location: profile.php');
+				header('Location: ../profile.php?');
 				exit;
 
 			} catch(PDOException $e) {
