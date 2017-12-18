@@ -5,8 +5,7 @@
 			</div>
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
                 <form action="model/updateproperty.php" method="post" class="propForm" enctype="multipart/form-data">
-                <input type="text" name="pid"  hidden>
-                <input type="text" name="user_id"  hidden>
+                <input type="text" name="pid"  value="<?php echo $_SESSION["prop_to_update"]["pid"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
                     </span>
