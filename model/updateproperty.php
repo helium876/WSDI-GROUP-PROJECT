@@ -7,6 +7,7 @@
 		$_POST = array_map( 'stripslashes', $_POST );
 
 		
+		extract($_POST);
 
 			include("../include/config.php");
 
@@ -14,8 +15,9 @@
 
 			try {
 				//insert into database
-				$stmt = $db->prepare('INSERT INTO properties (pid, user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, street1, street2, city, parish, country, time_stamp) VALUES (:pid, :user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
+				$stmt = $db->prepare('UPDATE properties SET user_id = :user_id, prop_name = :prop_name, prop_type = :prop_type, size = :size, build_type = :build_type, bed_num = :bed_num, bath_num = :bath_num, list_type = :list_type, price = :price, street1 = :street1, street2 = :street2, city = :city, parish = :parish, country = :country WHERE pid = :pid');
 				$stmt->execute(array(
+					':pid' => $pid,
 					':user_id' => $user_id,
 					':prop_name' => $prop_name, 
 					':prop_type' => $prop_type, 
@@ -29,12 +31,11 @@
 					':street2' => $street2, 
 					':city' => $city, 
 					':parish' => $parish, 
-					':country' => $country,
-					':time_stamp' => date('Y-m-d H:i:s')
+					':country' => $country
 				));
 
 				//redirect to profile page
-				header('Location: ../profile.php?');
+				header('Location: ../profile.php');
 				exit;
 
 			} catch(PDOException $e) {

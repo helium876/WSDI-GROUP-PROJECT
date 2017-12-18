@@ -255,9 +255,6 @@
 					</button>
 				</div>
 				<div class="modal-body" id="upPropModBody">
-						<?php
-						include("include/updateproperty.php");
-						?>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -341,10 +338,10 @@
 				if (this.readyState == 4 && this.status == 200) {
 					//console.log(this.responseText);
 						var response = JSON.parse(this.responseText);
-						alert(JSON.stringify(response));
+						/*alert(JSON.stringify(response));
 						$('#updatePropModal .propForm input[name=pid]').val(response[0]);
 						$('#updatePropModal .propForm input[name=user_id]').val(response[1]);	
-						//$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
+						$('#updatePropModal .propForm input[name=prop_name]').val(response[2]);	
 						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).text(response[3]);
 						$('#updatePropModal .propForm select[name=prop_type] option').eq(0).val(response[3]);
 						$('#updatePropModal .propForm input[name=size]').val(response[4]);	
@@ -361,7 +358,8 @@
 						$('#updatePropModal .propForm input[name=street2]').val(response[13]);
 						$('#updatePropModal .propForm input[name=city]').val(response[14]);
 						$('#updatePropModal .propForm input[name=parish]').val(response[15]);
-						$('#updatePropModal .propForm input[name=country]').val(response[16]);				
+						$('#updatePropModal .propForm input[name=country]').val(response[16]);*/
+						$("#upPropModBody").load("include/updateproperty.php");				
 						$('#upProp').click();
 				}
 			};
