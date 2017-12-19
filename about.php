@@ -1,9 +1,3 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -62,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="agileits_w3layouts_team_grid">
 						<img src="images/13.jpg" alt=" " class="img-responsive" />
 					</div>
-					<h4>Agjei Masters</h4>
+					<h4>Agyei Masters</h4>
 					<p>Farmers</p>
 				</div>
 				<div class="col-md-3 agile_team_grid">
