@@ -4,6 +4,6 @@ require_once('config.php');
 
 //log user out
 $user->logout();
-header('Location: /'); 
+header('Location: ../index.php'); 
 
 ?>
