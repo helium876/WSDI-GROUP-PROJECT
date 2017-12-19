@@ -1,5 +1,5 @@
 <?php
-
+    #Author: Agyei Masters
 include('class.password.php');
 include('class.property.php');
 

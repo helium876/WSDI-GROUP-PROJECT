@@ -1,4 +1,5 @@
 <?php
+    #Author: Agyei Masters
 	if(isset($_POST['submit'])){
 
 		$_POST = array_map( 'stripslashes', $_POST );

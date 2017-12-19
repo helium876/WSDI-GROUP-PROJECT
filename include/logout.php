@@ -1,4 +1,5 @@
 <?php
+//Author: Agyei Masters
 //include config
 require_once('config.php');
 

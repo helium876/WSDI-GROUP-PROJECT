@@ -1,4 +1,5 @@
-<?php 
+<?php
+    #Author: Agyei Masters
 	if(isset($_REQUEST['deluser'])){ 
 
 		//if user id is 1 ignore

@@ -1,4 +1,5 @@
-<?php 
+<?php
+    #Author: Agyei Masters
 	if(isset($_REQUEST['delprop'])){ 
 
 		//if property id is 1 ignore

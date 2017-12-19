@@ -1,5 +1,5 @@
 <?php
-
+    #Author: Agyei Masters
 	//if form has been submitted process it
 
 	if(isset($_POST['submit'])){

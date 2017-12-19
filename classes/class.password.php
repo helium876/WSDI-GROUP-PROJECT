@@ -1,4 +1,5 @@
 <?php
+#Author: Agyei Masters
 if (!defined('PASSWORD_DEFAULT')) {
         define('PASSWORD_BCRYPT', 1);
         define('PASSWORD_DEFAULT', PASSWORD_BCRYPT);

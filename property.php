@@ -106,29 +106,6 @@
                     <div class="clear-fix"></div>
                 </div>
             </div>
-			
-				<!--<div class="col-md-4 w3l_services_grid">
-					<div class="w3ls_services_grid agileits_services_grid7">
-						<div class="agile_services_grid1_sub agileits_w3layouts_ser_sub">
-							<p>$ 45,000</p>
-						</div>
-						<div class="agileinfo_services_grid_pos agile_services_grid_pos">
-							<i class="fa fa-home" aria-hidden="true"></i>
-						</div>
-					</div>
-					<div class="wthree_service_text">
-						<h3>Big luxury house for rent</h3>
-						<h4 class="w3_agileits_service1">Reality Agency</h4>
-						<ul>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-							<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-							<li>(854)</li>
-						</ul>
-					</div>
-				</div>-->
 				<div class="clearfix"> </div>
 			</div>
 		</div>
