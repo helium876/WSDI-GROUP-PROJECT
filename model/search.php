@@ -52,7 +52,7 @@
 			$count = 0;
 		try {
       		
-      		$stmt = $db->query("SELECT * FROM properties WHERE prop_type = '$prop_type' bed_num = '$bed_num' bath_num = '$bath_num' list_type = '$list_type' AND parish = '$parish' ORDER BY time_stamp DESC");
+      		$stmt = $db->query("SELECT * FROM properties WHERE prop_type = '$prop_type' AND bed_num = '$bed_num' AND bath_num = '$bath_num' AND list_type = '$list_type' AND parish = '$parish' ORDER BY time_stamp DESC");
       			while($row = $stmt->fetch()){
 					$PROPS[$count] = $row;
       			}

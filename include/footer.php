@@ -36,7 +36,7 @@
 			</div>
 		</div>
 		<div class="w3l_footer_pos">
-			<p>© 2017 MI CASA. All Rights Reserved | Design by <strong>Maters</strong>|<strong>Shaw</strong>|<strong>Gooden</strong></p>
+			<p>© 2017 MI CASA. All Rights Reserved | Design by <strong>Masters</strong>|<strong>Shaw</strong>|<strong>Gooden</strong></p>
 			
 		</div>
 	</div>
