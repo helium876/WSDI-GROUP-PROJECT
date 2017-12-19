@@ -4,7 +4,8 @@
 <div class="header">
     <div class="container">
         <div class="w3_agile_logo">
-            <h1><a href="index.php"><span>T</span>enements</a></h1>
+            <!-- <h1><a href="index.php"><span>T</span>enements</a></h1> -->
+            <a href="index.php"><img src="images/logo.png" width="300px"></a>
         </div>
         <div class="clearfix"> </div>
     </div>
