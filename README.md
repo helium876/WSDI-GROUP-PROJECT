@@ -6,7 +6,7 @@
 
 Sherwayne Gooden(1103453) : Initial Frontend Design, Report  
 Agyei Masters(1403095) : Server-side CRUD operations  
-Mikhail Rene(1406944) Shaw : Server-Client Communication. Front-end Design Updates
+Mikhail Rene(1406944) Shaw : Server-Client Communication. Front-end Design Updates(as in how the server-client communication affects the frontend)
 
 ### Website Functions
 

@@ -71,7 +71,7 @@
 						<img src="images/15.jpg" alt=" " class="img-responsive" />
 					</div>
 					<h4>Wembley Williams</h4>
-					<p>Phanton Director</p>
+					<p>Phantom Director</p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
