@@ -31,7 +31,7 @@
 							<li><a href="mail.php"><span>Contact Us</span></a></li>
 							<?php
 								if($user->is_logged_in()){
-									echo '<li><a href="Profile.php"><span>Profile</span></a></li>';
+									echo '<li><a href="profile.php"><span>Profile</span></a></li>';
 									echo '<li><a href="include/logout.php"><span>Logout</span></a></li>';
 								}else{
 									echo '<li><a href="login.php"><span>Login</span></a></li>';
