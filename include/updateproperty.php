@@ -6,8 +6,14 @@
             <div class="w3layouts_skills_grids agileinfo_mail_grids">
                 <form action="model/updateproperty.php" method="post" class="propForm" enctype="multipart/form-data">
                 <input type="text" name="pid"  value="<?php echo $_SESSION["prop_to_update"]["pid"];?>" hidden>
+                <input type="text" name="oldPreview"  value="<?php echo $_SESSION["prop_to_update"]["preview"];?>" hidden>
                     <div class="container">
                         <div style="width: 500px !important;">
+                    <span class="input input--chisato" style="margin-left: 23mm !important;">
+                            <label class="custom-file">
+                                <input type="file" id="file" class="custom-file-input input__field input__field--chisato" name="preview">
+                                <span class="custom-file-control"></span>
+                            </label>
                     </span>
                     <span class="input input--chisato" style="margin-left: 23mm !important;">
                         

@@ -57,21 +57,21 @@
 						<img src="images/13.jpg" alt=" " class="img-responsive" />
 					</div>
 					<h4>Agyei Masters</h4>
-					<p>Farmers</p>
+					<p>Sales Director</p>
 				</div>
 				<div class="col-md-3 agile_team_grid">
 					<div class="agileits_w3layouts_team_grid">
-						<img src="images/14.jpg" alt=" " class="img-responsive" />
+						<img src="images/14.jpeg" alt=" " class="img-responsive" />
 					</div>
 					<h4>Sherwaine Gooden</h4>
-					<p>Farmers</p>
+					<p>CEO</p>
 				</div>
 				<div class="col-md-3 agile_team_grid">
 					<div class="agileits_w3layouts_team_grid">
 						<img src="images/15.jpg" alt=" " class="img-responsive" />
 					</div>
 					<h4>Wembley Williams</h4>
-					<p>Farmers</p>
+					<p>Phanton Director</p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

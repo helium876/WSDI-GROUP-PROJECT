@@ -15,35 +15,38 @@
 			try {
 
 				//get file extension
+				include("getproperties.php");
 				$ext = pathinfo($preview["name"],PATHINFO_EXTENSION);
-				$previewImg = "preview_".$user_id.".".$ext;
-				//insert into database
-				$stmt = $db->prepare('INSERT INTO properties (user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, preview, rented, street1, street2, city, parish, country, time_stamp) VALUES (:user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :preview, :rented, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
-				$stmt->execute(array(
-					':user_id' => $user_id,
-					':prop_name' => $prop_name, 
-					':prop_type' => $prop_type, 
-					':size' => $size, 
-					':build_type' => $build_type, 
-					':bed_num' => $bed_num, 
-					':bath_num' => $bath_num, 
-					':list_type' => $list_type, 
-					':price' => $price, 
-					':preview' =>  $previewImg,
-					':rented' => 0, 
-					':street1' => $street1, 
-					':street2' => $street2, 
-					':city' => $city, 
-					':parish' => $parish, 
-					':country' => $country,
-					':time_stamp' => date('Y-m-d H:i:s')
-				));
+				$previewImg = "preview_".((int)$PROPS[count($PROPS) - 1]["pid"] + 2).".".$ext;
 
 				//save file to server
-				if (move_uploaded_file($preview["tmp_name"], "images/previews/preview_".$user_id.".".$ext)) {
+				
+				if (move_uploaded_file($preview["tmp_name"], "../images/previews/".$previewImg)) {
+					//insert into database
+					$stmt = $db->prepare('INSERT INTO properties (user_id, prop_name, prop_type, size, build_type, bed_num, bath_num, list_type, price, preview, rented, street1, street2, city, parish, country, time_stamp) VALUES (:user_id, :prop_name, :prop_type, :size, :build_type, :bed_num, :bath_num, :list_type, :price, :preview, :rented, :street1, :street2, :city, :parish, :country,:time_stamp )') ;
+					$stmt->execute(array(
+						':user_id' => $user_id,
+						':prop_name' => $prop_name, 
+						':prop_type' => $prop_type, 
+						':size' => $size, 
+						':build_type' => $build_type, 
+						':bed_num' => $bed_num, 
+						':bath_num' => $bath_num, 
+						':list_type' => $list_type, 
+						':price' => $price, 
+						':preview' =>  $previewImg,
+						':rented' => 0, 
+						':street1' => $street1, 
+						':street2' => $street2, 
+						':city' => $city, 
+						':parish' => $parish, 
+						':country' => $country,
+						':time_stamp' => date('Y-m-d H:i:s')
+					));
 						
 				}else{
 					echo "file not saved";
+					return false;
 				}
 				//redirect to profile page
 				header('Location: ../profile.php?');

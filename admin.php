@@ -299,8 +299,9 @@
 														<span>
 															<i style="color: rgb(93, 204, 216);" class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</span>
-                                                    </button>
-                                                    <a style="
+                                                    </button>';
+									if($_SESSION["id"] != $thisuser["id"]){
+										echo '<a style="
 															width: 18px; 
 															height: 18px; 
                                                             margin-top: -1mm !important;
@@ -313,11 +314,14 @@
 														<span>
 															<i style="color: rgb(255,10,10);" class="fa fa-trash-o" aria-hidden="true"></i>
 														</span>
-                                                    </a>
+                                                    </a>';
+									}
+									echo'
 												</h3>
 											</div>
 										</div>
 									';
+                                                    
 								}
 							}
 							echo "</div>";

@@ -75,6 +75,7 @@ class User extends Password{
 		    
 		    $_SESSION['loggedin'] = true;
 			$_SESSION["email"] = $email;
+			$_SESSION["id"] = $this->get_user($email)["id"];
 		    return true;
 		}		
 	}

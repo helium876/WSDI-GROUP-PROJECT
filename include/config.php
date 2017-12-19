@@ -6,7 +6,8 @@ session_start();
 // database credentials
 define('DBHOST','localhost');
 define('DBUSER','root');
-define('DBPASS','admin');
+//define('DBPASS','admin');
+define('DBPASS','');
 define('DBNAME','wsdi_final');
 
 
