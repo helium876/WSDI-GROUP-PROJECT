@@ -9,6 +9,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php
 		include("include/head.php");
 	?>
+<style>
+	.centered-and-cropped { object-fit: cover }
+</style>
 <body>
 <!-- header -->
 	<header>
@@ -50,10 +53,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="w3layouts_skills_grids">
 				<div class="col-md-3 agile_team_grid">
 					<div class="agileits_w3layouts_team_grid">
-						<img src="images/12.jpg" alt=" " class="img-responsive" />
+						<img src="images/Shaw.jpeg" alt=" " class="img-responsive centered-and-cropped" />
 					</div>
 					<h4>Mikhail Rene Shaw</h4>
-					<p>Farmers</p>
+					<p>Marketing Director</p>
 				</div>
 				<div class="col-md-3 agile_team_grid">
 					<div class="agileits_w3layouts_team_grid">

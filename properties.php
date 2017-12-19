@@ -176,6 +176,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 												<h3><a style="color: rgb(93, 204, 216)" href="property.php?id='.$thisprop["pid"].'">'.$thisprop["prop_name"].'</a>
 												
 												</h3>
+												<label>'.$thisprop["city"].', </label>&nbsp<label>'.$thisprop["parish"].'</label>
 											</div>
 										</div>
 									';
