@@ -72,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `properties` (
 --
 
 INSERT INTO `properties` (`pid`, `user_id`, `prop_name`, `prop_type`, `size`, `build_type`, `bed_num`, `bath_num`, `list_type`, `price`, `preview`, `rented`, `street1`, `street2`, `city`, `parish`, `country`, `time_stamp`) VALUES
-(1, 2, '2 Bedroom house', 'Residential', 2500, 'Housing', '2', '1', 'Rent', '35,000', 'preview_1.jpg', 0, 'Lot 1575 Jamaica CR', 'Cornwall Courts', 'Montego Bay', 'St. James', 'Jamaica', '2017-12-17 00:00:00'),
-(2, 2, 'High Rise House', 'Residential', 3600, 'Housing', '3', '2', 'Rent', '48,000', 'preview_2.jpg', 0, 'Lot 1286 Trnidad CL', 'Cornwall Courts', 'Montego Bay', 'St. James', 'Jamaica', '2017-12-17 00:00:00'),
-(3, 2, 'Luxury House', 'Residential', 10000, 'Housing', '5', '3+', 'Rent', '126,000', 'preview_3.jpg', 0, '_', 'Boaden hill', 'Stony Hill', 'St. Andrew', 'Jamaica', '2017-12-17 00:00:00'),
+(1, 2, '2 Bedroom house', 'Residential', 2500, 'Housing', '2', '1', 'Rent', '35000', 'preview_1.jpg', 0, 'Lot 1575 Jamaica CR', 'Cornwall Courts', 'Montego Bay', 'St. James', 'Jamaica', '2017-12-17 00:00:00'),
+(2, 2, 'High Rise House', 'Residential', 3600, 'Housing', '3', '2', 'Rent', '48000', 'preview_2.jpg', 0, 'Lot 1286 Trnidad CL', 'Cornwall Courts', 'Montego Bay', 'St. James', 'Jamaica', '2017-12-17 00:00:00'),
+(3, 2, 'Luxury House', 'Residential', 10000, 'Housing', '5', '3+', 'Rent', '126000', 'preview_3.jpg', 0, '_', 'Boaden hill', 'Stony Hill', 'St. Andrew', 'Jamaica', '2017-12-17 00:00:00'),
 (13, 1, 'Downtown Flat', 'Residential', 10000, 'Apartment', '1', '1', 'Rent', '17500', 'preview_5.jpg', 0, 'Lot 12', 'Daubon Rd', 'Downtown', 'Kingston', 'Jamaica', '2017-12-19 18:45:50');
 
 -- --------------------------------------------------------
