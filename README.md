@@ -47,6 +47,9 @@ Database:
 - **"model/deleteproperties.php"** 
 - **"model/updateproperty.php"**
 
+Website DB Configuration  
+    **See "include/config.php"**
+
 ### Comments
 
 Was the course delivered effectively?  
